@@ -17,6 +17,8 @@ connection <- GraphqlClient$new(
 
 # GitHub Server doesn't has a schema at the base URL, have to manually load the schema in this case
 connection$load_schema()
+
+# Creating new Query
 new_query <- Query$new()
 
 # GraphQL Query
@@ -40,3 +42,6 @@ new_query$query('mydata', '{
 
 # Parse to more human readable form
 jsonlite::fromJSON(result)
+
+# Writing to file
+write(result, "output.json")
