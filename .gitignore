@@ -1,0 +1,11 @@
+# Python Generated Files
+__pycache__
+
+# Personal Files
+.vscode
+.env
+
+GithubManager.py
+request.py
+main.py
+requirements.txt
