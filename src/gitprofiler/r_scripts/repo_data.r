@@ -161,8 +161,3 @@ df <- data.frame(bio, emptyRepos, isHireable,average_time_between_commit,
 rm(new_query)
 
 write(result, "output.json")
-
-
-
-
-

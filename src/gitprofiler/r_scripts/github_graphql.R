@@ -7,7 +7,7 @@ library("jsonlite")
 library("dplyr")
 
 # Private GitHub Token ( create your own here: https://github.com/settings/tokens/new )
-token <- "92e9618f0a3bdb2b014e1eaeb1f4ac88a7ac86c1"
+token <- "<token>"
 
 # GraphQL Connection Object (GitHub)
 connection <- GraphqlClient$new(
@@ -38,10 +38,10 @@ new_query$query('mydata', '{
 }')
 
 # Execute Query
-# (result <- connection$exec(new_query$queries$mydata))
+(result <- connection$exec(new_query$queries$mydata))
 
 # Parse to more human readable form
-# jsonlite::fromJSON(result)
+jsonlite::fromJSON(result)
 
 # Writing to file
-# write(result, "output.json")
+write(result, "output.json")
