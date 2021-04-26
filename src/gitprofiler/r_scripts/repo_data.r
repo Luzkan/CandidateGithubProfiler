@@ -7,7 +7,7 @@ library("jsonlite")
 library("dplyr")
 
 # Private GitHub Token ( create your own here: https://github.com/settings/tokens/new )
-token <- "<token>"
+token <- "f927a6de5f6c2edfd93743bb299ecd11f3f011d7"
 
 # GraphQL Connection Object (GitHub)
 connection <- GraphqlClient$new(
@@ -118,17 +118,23 @@ commitDates <- list()
 
 
 for(d in commitMsgE) {
-  for(i in 1:length(d$node$author$user$login)){
-    if( d$node$author$user$login[i] == "Luzkan"){
+  tmp <- d$node$author$user$login
+  for(i in 1:length(tmp)){
+    if( !is.na(tmp[i]) && tmp[i] == "Luzkan"){
       commitDates <- c(commitDates,d$node$committedDate[i])
     }
   }
 }
 
 for (p in commitMsgE) {
-  for(i in 1:length(p$node$author$user$login)){
-    if( p$node$author$user$login[i] == "Luzkan"){
-      commitMSGList <- c(commitMSGList,p$node$message[i])
+  tmp <- d$node$author$user$login
+  for(i in 1:length(tmp)){
+    if( !is.na(tmp[i]) && tmp[i] == "Luzkan"){
+      msg <- p$node$message[i]
+      if(!is.na(msg)){
+        commitMSGList <- c(commitMSGList, msg )
+      }
+      
     }
   }
 }
