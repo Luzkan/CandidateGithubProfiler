@@ -144,6 +144,41 @@ Here's an example result from Mega Linter.
 
 </details>
 
+<details>
+  <summary><b>Running the Mega Linter locally.</b></summary>
+
+---
+
+## Requirements
+
+__Important Notice:__ Mega Linter is super-heavy in terms of required storage (__`40GB+`__).
+
+As a prerequisite - you have to have [Docker](https://www.docker.com/products/docker-desktop) installed on your computer.
+
+> Windows
+
+First, download the [Linux Kernel Update Package](https://docs.microsoft.com/pl-pl/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package). It is necessary for Docker to work on your machine. Then, download the Docker [executable installer](https://www.docker.com/products/docker-desktop) and install it just like any other application. Restart is mandatory after the installation.
+
+> Unix
+
+Depending on the version of your distro, something analogous to this command should do the job:
+
+```sh
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+## Running
+
+If you have Docker already installed:
+
+ - clone fresh copy of desired repository which you would like to examine using [`git clone`](https://git-scm.com/docs/git-clone) command.
+ - navigate to the repository
+ - run this command: `npx mega-linter-runner --flavor all -e 'ENABLE=,DOCKERFILE,MARKDOWN,YAML' -e 'SHOW_ELAPSED_TIME=true'`
+ 
+New directory should be created in the repository called `reports`.
+
+</details>
+
 
 ## __Planned__
 
