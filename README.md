@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  Git Profiler <b>v0.1.0</b> <i>(PBR21M1)</i>
+  Git Profiler <b>v0.2.0</b> <i>(PBR21M1)</i>
   <br>
 </h1>
 
@@ -13,13 +13,11 @@
   <a href="#planned">Paper</a>
 </p>
 
-
-## __Features__
+## **Features**
 
 - GitHub Graph QL Query which gives on output all the data that could be useful in this research.
 
-
-## __Usage__
+## **Usage**
 
 ### Requirements:
 
@@ -43,11 +41,11 @@ Navigating to directory containing scripts (`./src/gitprofiler/r_scripts/`).
 
 <img src="./img/readme/scripts_source_dir.gif" alt="Navigating to R Scripts directory" width="850"/>
 
-Open one of the scripts. You have to modify line `10`, which holds the __GitHub Token__ value. You can generate one via [Personal Access Token Page](https://github.com/settings/tokens/new).
+Open one of the scripts. You have to modify line `10`, which holds the **GitHub Token** value. You can generate one via [Personal Access Token Page](https://github.com/settings/tokens/new).
 
 <img src="./img/readme/generating_github_token.gif" alt="Generating new Personal GitHub Access Token" width="850"/>
 
-After generating one, replace the string `token <- "`__`<token>`__`"` in order to be able to access GitHub Graph QL.
+After generating one, replace the string `token <- "`**`<token>`**`"` in order to be able to access GitHub Graph QL.
 
 <img src="./img/readme/inserting_private_token.png" alt="Inserting Private Token" width="850"/>
 
@@ -55,12 +53,11 @@ Console Window when running the Query (`v0.1.0`).
 
 <img src="./img/readme/running_query_v0_1_0.gif" alt="Running Query v0.1.0" width="850"/>
 
-__Results__ can be found in the _Environment_ tab on the right pane.
+**Results** can be found in the _Environment_ tab on the right pane.
 
 <img src="./img/readme/query_results_v0_1_0.png" alt="Query Results v0.1.0" width="850"/>
 
 </details>
-
 
 <details>
   <summary>Running the Mega Linter.</summary>
@@ -69,7 +66,7 @@ __Results__ can be found in the _Environment_ tab on the right pane.
 
 ### Current State
 
-At this moment we are investigating incorporating __docker__ into the project so we could make use of the __Mega Linter__ locally. As of `v0.1.0` we tested it through [GitHub CI](https://docs.github.com/en/actions/guides/about-continuous-integration).
+At this moment we are investigating incorporating **docker** into the project so we could make use of the **Mega Linter** locally. As of `v0.1.0` we tested it through [GitHub CI](https://docs.github.com/en/actions/guides/about-continuous-integration).
 
 ### Setup & Run
 
@@ -145,13 +142,13 @@ Here's an example result from Mega Linter.
 </details>
 
 <details>
-  <summary><b>Running the Mega Linter locally.</b></summary>
+  <summary>Running the Mega Linter locally.</summary>
 
 ---
 
 ## Requirements
 
-__Important Notice:__ Mega Linter is super-heavy in terms of required storage (__`40GB+`__).
+**Important Notice:** Mega Linter is super-heavy in terms of required storage (**`40GB+`**).
 
 As a prerequisite - you have to have [Docker](https://www.docker.com/products/docker-desktop) installed on your computer.
 
@@ -171,19 +168,65 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 If you have Docker already installed:
 
- - clone fresh copy of desired repository which you would like to examine using [`git clone`](https://git-scm.com/docs/git-clone) command.
- - navigate to the repository
- - run this command: `npx mega-linter-runner --flavor all -e 'ENABLE=,DOCKERFILE,MARKDOWN,YAML' -e 'SHOW_ELAPSED_TIME=true'`
- 
+- clone fresh copy of desired repository which you would like to examine using [`git clone`](https://git-scm.com/docs/git-clone) command.
+- navigate to the repository
+- run this command: `npx mega-linter-runner --flavor all -e 'ENABLE=,DOCKERFILE,MARKDOWN,YAML' -e 'SHOW_ELAPSED_TIME=true'`
+
 New directory should be created in the repository called `reports`.
 
 </details>
 
+<details>
+  <summary>Running Mega Linter Scrape Script.</summary>
 
-## __Planned__
+---
+
+## Requirements
+
+As a prerequisite - you have to have [Python](https://www.python.org/downloads/) installed on your computer. The script has been written with [Python 3.9.4](https://www.python.org/downloads/release/python-394/).
+
+## Running
+
+Navigate to the [`/src/gitprofiler/py_scripts/`](./src/gitprofiler/py_scripts) directory. Add your output log file _(you can generate the output log by appending ` > output.txt` to the command which redirects the standard output stream into text file)_ into this directory and then open up console and type in:
+
+```sh
+python scrape.py -f output.txt
+```
+
+This will generate `output.json` file (in the same directory) which will contain logs in `json` format as list where under each index one can find dictionary:
+
+```python
+{
+  "language": str,
+  "linter": str,
+  "files": int or str,  # amount of detected files in given language by linter
+  "fixed": int,         # amount of fixed errors automatically by linter
+  "errors": int         # amount of errors that could not be fixed by linter
+},
+```
+
+or
+
+```python
+{
+  "language": str,
+  "files": int,                      # amount of detected files in given language by linter
+  "lines": int,                      # amount of detected lines in a given language
+  "tokens": int,                     # amount of detected tokens ("chars") in a given language
+  "clones": int,
+  "duplicate_lines_num": int,
+  "duplicate_lines_percent": float,
+  "duplicate_tokens_num": int,
+  "duplicate_tokens_percent": float
+},
+```
+
+</details>
+
+## **Planned**
 
 TBD.
 
-## __Paper__
+## **Paper**
 
 TBD.

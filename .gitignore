@@ -5,7 +5,6 @@ __pycache__
 .vscode
 .env
 
-GithubManager.py
-request.py
-main.py
-requirements.txt
+# Genreated Files via Scripts
+output.txt
+output.json
