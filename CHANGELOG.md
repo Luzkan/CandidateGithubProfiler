@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.4.0]] - 2021-05-11 _(Marcel Jerzyk)_
+
+This changelog entry will be filled in a few days.
+
+### Added
+
+- [`data/cleaned_data.csv`](./data/cleaned_data.csv)
+- [`data/questionnaire.csv`](./data/questionnaire.csv)
+- [`src/gitprofiler/py_scripts/questionnaire_adjuster.py`](./src/gitprofiler/py_scripts/questionnaire_adjuster.py)
+
 ## [[0.3.1]] - 2021-05-08 _(Marcel Jerzyk)_
 
 ### Added
@@ -221,7 +231,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **Project was initialized.**
 
-[unreleased]: https://github.com/pwr-pbr21/M1/compare/v0.3.1...HEAD
+[unreleased]: https://github.com/pwr-pbr21/M1/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/pwr-pbr21/M1/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/pwr-pbr21/M1/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/pwr-pbr21/M1/compare/v0.2.3...v0.3.0
 [0.2.3]: https://github.com/pwr-pbr21/M1/compare/v0.2.2...v0.2.3
