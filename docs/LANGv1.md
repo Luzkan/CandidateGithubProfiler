@@ -1,4 +1,21 @@
-# 1
+# Language (v1)
+
+This file notes all the corrections I made in the language _(spelling / grammar / language / changed sentences / general improvements)_ used in the paper so the original thought behind a sentence can be easily tracked back in case I'll twist the original message. This also contains various `LaTeX` improvements such as added formatting, references, labels, additional use of commands from additional packages and etc.
+
+This file covers:
+
+- Systematic Review
+- Research Questions
+- Resources to Be Searched
+- Results Selection Process
+- Literature Review
+- Methodology
+- Data Collection
+- Data Preprocessing
+
+---
+
+# 1 - Systematic Review
 
 ## Pre
 
@@ -16,7 +33,7 @@ What distinguishes this paper among others — as we mentioned — we do **recog
 What distinguishes this paper among others — as we mentioned — we do recognize that the majority of recruiters does not have skills that could examine the technicality of a candidate. For example in the \emph{"Mining the Technical Roles of GitHub Users"} the survey was conducted among recruiters from StackOverflow website \footnote{StackOverflow Website URL: https://stackoverflow.com/} - which is primarily used by developers for the purposes of collaboration \& knowledge sharing. Thus, it can be concluded that the surveyed sample was exceptional among global population of recruiters as they have made extra efforts to create an account on IT-technical website and not only that - they were actively browsing it and even possibly creating extra content which made them visible and reachable by researchers. Based on the research we have conducted, there are only a few unfinished recommendation systems that use the user GitHub profile but at the same time there is some research that focuses on mining the data from the repositories.
 ```
 
-# 2
+# 2 - Research Questions
 
 ## Pre
 
@@ -68,7 +85,7 @@ Hence, we defined four research questions.
 \end{itemize}
 ```
 
-# 3
+# 3 - Resources to Be Searched
 
 ## Pre
 
@@ -178,4 +195,90 @@ This gave us a good amount of publications which needed to be further filtered b
 \caption{Literature identification}
 \label{fig:literature-identification}
 \end{figure}
+```
+
+# 4 - Results Selection Process
+
+## Pre
+
+```latex
+Having selected a large number of studies with the search engines we screened titles and abstracts so as to exclude irrelevant papers. Subsequently, we eliminated duplicates. In consequence we obtained 28 results. Eventually, we managed to analyse all of filtered studies and choose 10 the most appropriate ones.
+```
+
+## Post
+
+## End
+
+```latex
+
+```
+
+# 5 - Literature Review
+
+## Pre
+
+```latex
+Choosed literature gives us answears to the questions asked earlier in this paper and provide us some useful informations. \\Skills which are needed from IT specialists descirbes \cite{StackOverflowStudies} based on job offers posted on Stack Overflow. They extract needed data and then define which hard and soft skills are welcome among recruiters. This study helps us to depict usefull skills and also can help young programmers to find their first dream job as a software engineer. Paper \cite{DoOnBoardingProgramsWork} gives us a very interesting look on boarding programs. It aware us that not every contribiutor to the open source systems is going to be a skilled programer. Based on this article many contributors are people who took part in a boarding program which are mentored by some master. Master gives participants many tips and helps them with their problems. Having that information we should be careful looking at repository contributors because not everyone is going to be professional. Article \cite{GitHubProfilesToJobAdv} shows us how skills extracted from job offers can be matched with developers skills extracted from repositories. Description of data scraping and how matching can be done should be useful in system which is presented in this paper.
+\\Subject of repositories is discussed in \cite{MiningGitHub}, they take a deep look into the structure and usage of repositiories. This paper points out that not every repository is used for programming porpuses. Many of the repositories are abandonded few weeks after creation which causes very large actvity in first weeks but with the time passing, activity is decreasing drastically. A good amount of peple are using repositories as a storage or they simply have empty repositories as an effect of some experiments or attempts of learning.
+\\Recruitment process is described by the developers in paper \cite{HiringIsBroken} where authors collected data from actuall developers who posted their opinions on social networks. There is said that recruiment process casues a lot of stress and is not liked among developers. Programmers say that during the interview they can not show their whole potential and they are served with excercises which are not useful during normal work and do not check their actuall knowleadge. Developers criticise big companies for their ease of rejecting canditates beacause there are going to be much more candidates and it is not going to be a big mistake if they reject someone good - simply they will find someone else.
+\\In recent years there have been carried out a various similar types of research concerning issues related to our study. For instance, there was created an online developer profiling tool assessing developer expertise \cite{GitLabProfilingTool}. The tool considers factors such as code quality, code quantity, contribution to rank  software engineer’s repositories and his skills as well. Evaluations of developers using greater number of features were determined as more accurate ones. However, weight of all of the indicators was equivalent, so none of them could be chosen as the most significant. Moreover, the tool is based on analysis of repositories created on GitLab which is definitely less popular than GitHub.[przypis?]
+\\Furthermore, a relation between technical and social skills \cite{WhatMakesGoodDev} was explored also. In the study which aims at finding out what makes developer good we discovered that there is a lack of strong association between above types of skills, so doubtless it is extremely tough to assess soft and social skills mining GitHub repositories.
+\\Generally, candidate selection process might be based on LinkedIn profile, CV and Github Profile as well \cite{CandidateSelection}. Although it could be complicated to obtain information about non-technical skills using above resources, personality traits of candidates could be accessed from analyzed transcription of a phone call.
+\\In terms of identifying experts in software libraries and frameworks \cite{SoftwareLibraries} it was analyzed which features best distinguish library specialists. First of all, it was explored that the feature values are different for experts in each library. Nevertheless, the features such as number of commits are always relevant.
+```
+
+## Post
+
+## End
+
+```latex
+
+```
+
+# 6 - Methodology
+
+## Pre
+
+```latex
+In this section we defined methods, techniques, tools and processes referring to the main part of our research.
+```
+
+## Post
+
+## End
+
+```latex
+
+```
+
+# 7 - Data Collection
+
+## Pre
+
+```latex
+Process of data collection was divided into two steps. First step was to collect github users and data about their skills and job experiences. To do that we used Google Form in which creation of form was very easy and clear. Collected data was saved to CSV file and then properly prepared with R script. Second step was to collect data from repositories. We used usernames provided in the from and then with usage of GitHub GraphQL API we were able get to information which were considered interesting for us.
+```
+
+## Post
+
+## End
+
+```latex
+
+```
+
+# 8 - Data Preprocessing
+
+## Pre
+
+```latex
+Having collected dataset which was going to be used in a further phase of research we decided to preprocess the data. First and foremost,  we had to reject useless survey answers with no information about GitHub username. Subsequently, we needed to determine which features, obtained from github profiles, can be identified as the most appropriate ones.  After screening the features we also used a special tool called Mega-Linter in order to achieve more indicators about users’s repositories quality. In the end, we prepared a csv file with preprocessed data containing multiple pieces of information about GitHub users and selected features.
+```
+
+## Post
+
+## End
+
+```latex
+
 ```
