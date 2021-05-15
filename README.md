@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  Git Profiler <b>v0.4.0</b> <i>(PBR21M1)</i>
+  Git Profiler <b>v0.5.0</b> <i>(PBR21M1)</i>
   <br>
 </h1>
 
@@ -35,27 +35,27 @@
 
 Launching New Project.
 
-<img src="./img/readme/loading_project.png" alt="Launching New Project in R Studio" width="850"/>
+<img src="./docs/img/readme/loading_project.png" alt="Launching New Project in R Studio" width="850"/>
 
 Navigating to directory containing scripts (`./src/gitprofiler/r_scripts/`).
 
-<img src="./img/readme/scripts_source_dir.gif" alt="Navigating to R Scripts directory" width="850"/>
+<img src="./docs/img/readme/scripts_source_dir.gif" alt="Navigating to R Scripts directory" width="850"/>
 
 Open one of the scripts. You have to modify line `10`, which holds the **GitHub Token** value. You can generate one via [Personal Access Token Page](https://github.com/settings/tokens/new).
 
-<img src="./img/readme/generating_github_token.gif" alt="Generating new Personal GitHub Access Token" width="850"/>
+<img src="./docs/img/readme/generating_github_token.gif" alt="Generating new Personal GitHub Access Token" width="850"/>
 
 After generating one, replace the string `token <- "`**`<token>`**`"` in order to be able to access GitHub Graph QL.
 
-<img src="./img/readme/inserting_private_token.png" alt="Inserting Private Token" width="850"/>
+<img src="./docs/img/readme/inserting_private_token.png" alt="Inserting Private Token" width="850"/>
 
 Console Window when running the Query (`v0.1.0`).
 
-<img src="./img/readme/running_query_v0_1_0.gif" alt="Running Query v0.1.0" width="850"/>
+<img src="./docs/img/readme/running_query_v0_1_0.gif" alt="Running Query v0.1.0" width="850"/>
 
 **Results** can be found in the _Environment_ tab on the right pane.
 
-<img src="./img/readme/query_results_v0_1_0.png" alt="Query Results v0.1.0" width="850"/>
+<img src="./docs/img/readme/query_results_v0_1_0.png" alt="Query Results v0.1.0" width="850"/>
 
 </details>
 
@@ -133,11 +133,11 @@ git push -f
 
 Now, you can open your project through a web browser and navigate to _"Actions"_ tab. You should see the Mega Linter job.
 
-<img src="./img/readme/mega_linter_job.png" alt="Mega Linter Job visible through GitHub CI" width="850"/>
+<img src="./docs/img/readme/mega_linter_job.png" alt="Mega Linter Job visible through GitHub CI" width="850"/>
 
 Here's an example result from Mega Linter.
 
-<img src="./img/readme/mega_linter_results.png" alt="Mega Linter Results Table" width="850"/>
+<img src="./docs/img/readme/mega_linter_results.png" alt="Mega Linter Results Table" width="850"/>
 
 </details>
 
