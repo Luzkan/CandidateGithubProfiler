@@ -1,0 +1,9 @@
+# 1
+
+## Pre
+
+What distinguishes this paper among others - as we mentioned - we do recognise that majority of recruiters does not have skills that could examine the technicality of a candidate. For example in the \emph{"Mining the Technical Roles of GitHub Users"} the survey was conducted among recruiters from \footnote{StackOverflow Website URL: https://stackoverflow.com/} - strictly developer collaboration \& knowledge sharing website. Thus, it can be concluded that the surveyed sample was exceptional among global population of recruiters as they were interested to create an account and browse an IT-technical website. As far as we know there are examples of few not developed recommendation systems based on user Github profile but there are many papers which focus on mining data from repositories.
+
+## Post
+
+What distinguishes this paper among others — as we mentioned — we do **recognize** that **the** majority of recruiters does not have skills that could examine the technicality of a candidate. For example in the \emph{"Mining the Technical Roles of GitHub Users"} the survey was conducted among recruiters from **StackOverflow website** \footnote{StackOverflow Website URL: https://stackoverflow.com/} - which is **primarily used by developers for the purposes of collaboration \& knowledge sharing**. Thus, it can be concluded that the surveyed sample was exceptional among global population of recruiters **as they have made extra efforts to create an account on** IT-technical website **and not only that - they were actively browsing it and even possibly creating extra content which made them visible and reachable by researchers**. **Based on the research we have conducted, there are only a few unfinished recommendation systems that use the user GitHub profile but at the same time there is some research that focuses on mining the data from the repositories.**
