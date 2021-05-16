@@ -207,10 +207,12 @@ Having selected a large number of studies with the search engines we screened ti
 
 ## Post
 
+**After running the search string query, we were presented with a large number of results.** **We have went through the results list and discarded all duplicate entries and simultaneously discarded those papers whose titles or abstracts were not related to the topic of our research.** **Thus, we ended up with 28 papers which we further examined. Finally, we have chosen 10 papers which are closely related to the subject of this paper.**
+
 ## End
 
 ```latex
-
+After running the search string query, we were presented with a large number of results. We have went through the results list and discarded all duplicate entries and simultaneously discarded those papers whose titles or abstracts were not related to the topic of our research. Thus, we ended up with 28 papers which we further examined. Finally, we have chosen 10 papers which are closely related to the subject of this paper.
 ```
 
 # 5 - Literature Review
