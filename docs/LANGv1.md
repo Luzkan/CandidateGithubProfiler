@@ -377,6 +377,10 @@ In total, we received 67 completed questionnaires and 45 of them were provided w
 
 One of the most difficult tasks is to properly obtain information from the repositories of a given user. For research purposes, we decided to track them for potential errors and warnings which can be identified via linters. Linter is a static code analysis tool used to flag any bugs, errors, stylistic warnings, suspicious constructs, redundant code and more depending on the language and/or tool. Of course, the user could have repositories with code written in any language that exists and that is a real problem, which we mitigated by a linter-aggregating tool - "Mega Linter". Mega Linter is an open source tool that simply detects the languages used in a given project and then uses all available linters to scan it through. After the scan it prints out a summary table with the amount of Files that were detected and scanned with a given linter, the amount of fixed files automatically during the run time and the amount of errors that couldn't be automatically fixed. To obtain that data we redirected the output stream into a file and then parsed it with Python script "scrape.py" which can be found in "py_scripts" folder.
 
+The usage of the Mega Linter and scrape script is more widely described in main "README.md" file although, in-short, one must have Docker and Python installed. Then, simply navigate to repository which you would like to lint and run command which will generate an output.txt file.
+
+Copy the file and paste it in the "scrape.py" directory. Finally use command which will generate an "output.json" with list of dictionaries structured as in.
+
 ## End
 
 ```latex
@@ -387,19 +391,41 @@ In total, we received 67 completed questionnaires and 45 of them were provided w
 
 \subsubsection{Repositories}
 
-One of the most difficult tasks is to properly obtain information from the repositories of a given user. For research purposes, we decided to track them for potential errors and warnings which can be identified via linters. Linter is a static code analysis tool used to flag any bugs, errors, stylistic warnings, suspicious constructs, redundant code and more depending on the language and/or tool. Of course, the user could have repositories with code written in any language that exists and that is a real problem, which we mitigated by a linter-aggregating tool - \emph{Mega Linter} \footenote{MegaLinter GitHub Page - https://github.com/nvuillam/mega-linter}. Mega Linter is an open source tool that simply detects the languages used in a given project and then uses all available linters to scan it through. After the scan it prints out a summary table with the amount of Files that were detected and scanned with a given linter, the amount of fixed files automatically during the run time and the amount of errors that couldn't be automatically fixed. To obtain that data we redirected the output stream into a file and then parsed it with Python script \emph{,,scrape.py''} which can be found in \emph{,,py_scripts''} folder.
+One of the most difficult tasks is to properly obtain information from the repositories of a given user. For research purposes, we decided to track them for potential errors and warnings which can be identified via linters. Linter is a static code analysis tool used to flag any bugs, errors, stylistic warnings, suspicious constructs, redundant code and more depending on the language and/or tool. Of course, the user could have repositories with code written in any language that exists and that is a real problem, which we mitigated by a linter-aggregating tool - \emph{Mega Linter} \footenote{MegaLinter GitHub Page - https://github.com/nvuillam/mega-linter}. Mega Linter is an open source tool that simply detects the languages used in a given project and then uses all available linters to scan it through. After the scan it prints out a summary table with the amount of Files that were detected and scanned with a given linter, the amount of fixed files automatically during the run time and the amount of errors that couldn't be automatically fixed. There's also a second table that's printed somewhere in the first half of the output log that has information about detected duplicate lines and tokens in the project. To obtain that data we redirected the output stream into a file and then parsed it with Python script \emph{,,scrape.py''} which can be found in \emph{,,py_scripts''} folder.
 
-The usage of the Mega Linter and scrape script is more widely described in main \emph{README.md} file although, in-short, one must have Docker \footnote{Docker Website - https://www.docker.com/} and Python installed. Then, simply navigate to repository which you would like to lint and run command \ref{lst:shell-command-scrape-py} which will generate an \emph{output.txt} file. Copy the file and paste it in the \emph{scrape.py} directory.
-
-To use the script \ref{lst:shell-command-scrape-py}
-
+The usage of the Mega Linter and scrape script is more widely described in main \emph{README.md} file although, in-short, one must have Docker \footnote{Docker Website - https://www.docker.com/} and Python installed. Then, simply navigate to repository which you would like to lint and run command \ref{lst:shell-command-scrape-py} which will generate an \emph{output.txt} file.
 
 \begin{lstlisting}[language=shell, label={lst:shell-command-scrape-py}]
 npx mega-linter-runner --flavor all -e 'ENABLE=,DOCKERFILE,MARKDOWN,YAML' -e 'SHOW_ELAPSED_TIME=true' > output.txt
 \end{lstlisting} \\
 
+Copy the file and paste it in the \emph{scrape.py} directory. Finally use \ref{lst:shell-command-scrape-py} command which will generate an \emph{output.json} with list of dictionaries structured as in \ref{lst:scrape-py-output-example}.
+
 \begin{lstlisting}[language=shell, label={lst:shell-command-scrape-py}]
 python scrape.py -f output.txt
 \end{lstlisting} \\
 
+\begin{lstlisting}[language=Python, label={lst:scrape-py-output-example}]
+{
+  "language": str,
+  "linter": str,
+  "files": int or str,  # amount of detected files in given language by linter
+  "fixed": int,         # amount of fixed errors automatically by linter
+  "errors": int         # amount of errors that could not be fixed by linter
+},
+
+or
+
+{
+  "language": str,
+  "files": int,                      # amount of detected files in given language by linter
+  "lines": int,                      # amount of detected lines in a given language
+  "tokens": int,                     # amount of detected tokens ("chars") in a given language
+  "clones": int,
+  "duplicate_lines_num": int,
+  "duplicate_lines_percent": float,
+  "duplicate_tokens_num": int,
+  "duplicate_tokens_percent": float
+},
+\end{lstlisting} \\
 ```
