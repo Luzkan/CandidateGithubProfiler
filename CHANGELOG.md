@@ -5,9 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [TODO]
+
+- Literature Review - rewrite to formal English, grammar etc.
 
 ---
+
+## [[0.5.0]] - 2021-05-11 _(Marcel Jerzyk)_
+
+### Added
+
+- New directory: [`./docs`](./docs) containing various files regarding the technical side of the project as well as images used in markdown files.
+- LaTeX document changes tracker: [`LANGv1.md`](./docs/LANGv1.md). It has previous versions of sections and subsections:
+  - Systematic Review
+  - Research Questions
+  - Resources to Be Searched
+  - Results Selection Process
+  - Data Collection
+  - Data Preprocessing
+
+### Changed
+
+- Moved directory: [`./img/readme/*`](./img/readme/) inside [`./docs`](./docs) _(now: [`./docs/img/readme/*`])_.
 
 ## [[0.4.0]] - 2021-05-11 _(Marcel Jerzyk)_
 
@@ -231,7 +250,8 @@ This changelog entry will be filled in a few days.
 
 **Project was initialized.**
 
-[unreleased]: https://github.com/pwr-pbr21/M1/compare/v0.4.0...HEAD
+[todo]: https://github.com/pwr-pbr21/M1/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/pwr-pbr21/M1/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/pwr-pbr21/M1/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/pwr-pbr21/M1/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/pwr-pbr21/M1/compare/v0.2.3...v0.3.0
