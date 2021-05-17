@@ -9,7 +9,6 @@ This file covers:
 - Resources to Be Searched
 - Results Selection Process
 - Literature Review
-- Methodology
 - Data Collection
 - Data Preprocessing
 
@@ -374,8 +373,33 @@ Having collected dataset which was going to be used in a further phase of resear
 
 ## Post
 
+In total, we received 67 completed questionnaires and 45 of them were provided with GitHub profile. The data file was further cleaned and reformatted with the use of Python script. Both the original and formatted CSV files can be found in the project source under the name "questionnaire.csv" and "cleaned_data.csv" as well as the Python script used for data formatting can be found in "py_scripts" directory under the name "questionnaire_adjuster.py".In order to run the script, one must have Python 3.9 or newer installed on the machine along with "Numpy", "Pandas" and "Requests" packages.
+
+One of the most difficult tasks is to properly obtain information from the repositories of a given user. For research purposes, we decided to track them for potential errors and warnings which can be identified via linters. Linter is a static code analysis tool used to flag any bugs, errors, stylistic warnings, suspicious constructs, redundant code and more depending on the language and/or tool. Of course, the user could have repositories with code written in any language that exists and that is a real problem, which we mitigated by a linter-aggregating tool - "Mega Linter". Mega Linter is an open source tool that simply detects the languages used in a given project and then uses all available linters to scan it through. After the scan it prints out a summary table with the amount of Files that were detected and scanned with a given linter, the amount of fixed files automatically during the run time and the amount of errors that couldn't be automatically fixed. To obtain that data we redirected the output stream into a file and then parsed it with Python script "scrape.py" which can be found in "py_scripts" folder.
+
 ## End
 
 ```latex
+
+\subsubsection{Questionnaire}
+
+In total, we received 67 completed questionnaires and 45 of them were provided with GitHub profile. The data file was further cleaned and reformatted with the use of Python \footnote{Python Website: https://www.python.org/} script. Both the original and formatted CSV files can be found in the project source under the name \emph{,,questionnaire.csv''} and \emph{,,cleaned_data.csv''} as well as the Python script used for data formatting can be found in \emph{,,py_scripts''} directory under the name ,,questionnaire_adjuster.py''. In order to run the script, one must have Python 3.9 or newer installed on the machine along with "Numpy" \footnote{Numpy PyPI Page - https://pypi.org/project/numpy/}, "Pandas" \footnote{Pandas PyPI Page - https://pypi.org/project/pandas/} and "Requests" \footnote{Requests PyPI Page - https://pypi.org/project/requests/} packages.
+
+\subsubsection{Repositories}
+
+One of the most difficult tasks is to properly obtain information from the repositories of a given user. For research purposes, we decided to track them for potential errors and warnings which can be identified via linters. Linter is a static code analysis tool used to flag any bugs, errors, stylistic warnings, suspicious constructs, redundant code and more depending on the language and/or tool. Of course, the user could have repositories with code written in any language that exists and that is a real problem, which we mitigated by a linter-aggregating tool - \emph{Mega Linter} \footenote{MegaLinter GitHub Page - https://github.com/nvuillam/mega-linter}. Mega Linter is an open source tool that simply detects the languages used in a given project and then uses all available linters to scan it through. After the scan it prints out a summary table with the amount of Files that were detected and scanned with a given linter, the amount of fixed files automatically during the run time and the amount of errors that couldn't be automatically fixed. To obtain that data we redirected the output stream into a file and then parsed it with Python script \emph{,,scrape.py''} which can be found in \emph{,,py_scripts''} folder.
+
+The usage of the Mega Linter and scrape script is more widely described in main \emph{README.md} file although, in-short, one must have Docker \footnote{Docker Website - https://www.docker.com/} and Python installed. Then, simply navigate to repository which you would like to lint and run command \ref{lst:shell-command-scrape-py} which will generate an \emph{output.txt} file. Copy the file and paste it in the \emph{scrape.py} directory.
+
+To use the script \ref{lst:shell-command-scrape-py}
+
+
+\begin{lstlisting}[language=shell, label={lst:shell-command-scrape-py}]
+npx mega-linter-runner --flavor all -e 'ENABLE=,DOCKERFILE,MARKDOWN,YAML' -e 'SHOW_ELAPSED_TIME=true' > output.txt
+\end{lstlisting} \\
+
+\begin{lstlisting}[language=shell, label={lst:shell-command-scrape-py}]
+python scrape.py -f output.txt
+\end{lstlisting} \\
 
 ```
