@@ -68,7 +68,8 @@ queryString2 <-  '") {
   }
 }'
 
-
+# Function extracts reposiotires names from json retrived from github request
+# Example usage : extractRepoNames(list(name1, name2, name3))
 extractRepoNames <-function(names) {
   toRet <- ""
   for (n in names) {
@@ -77,6 +78,8 @@ extractRepoNames <-function(names) {
   toRet
 }
 
+#Function extracts languages from json retrived from github request
+#Exampleusage : getLanguages(languagesList)
 getLanguages <- function(languages) {
   toRet <- ""
   for (lang in languages) {
@@ -87,6 +90,8 @@ getLanguages <- function(languages) {
   toRet
 }
 
+#Function extracts commits messages from json retrived from github request
+#Example usage : getCommitMsg(commitsList, "Username")
 getCommitMsg <- function(commits, userName) {
   toRet <- ""
   for (p in commits) {
@@ -104,6 +109,8 @@ getCommitMsg <- function(commits, userName) {
   toRet
 }
 
+#Function calculates average time between commits based on data from github request
+#Example usage : calculateAVGCommitTime(commmitsList, "username")
 calculateAVGCommitTime <- function(commits, userName) {
   if(is.null(commits)) return (NA)
   commitDates <- list()
@@ -131,6 +138,8 @@ calculateAVGCommitTime <- function(commits, userName) {
   average_time_between_commit
 }
 
+#Function retrives data from github based on provided username and then collects it to data.frame
+#Example usage : getDataFromGitHub("Username")
 getDataFromGitHub <- function(userName) {
   token <- "f927a6de5f6c2edfd93743bb299ecd11f3f011d7"
   connection <- GraphqlClient$new(
@@ -170,16 +179,20 @@ getDataFromGitHub <- function(userName) {
 }
 
 
+#Reading data from CSV file provided from questionare
+repo_data <- read.csv('D:/Studia_mgr/Semestr_I/PBR/M1/data/cleaned_data.csv', encoding = "UTF-8")
 
-repo_data <- read.csv('D:/Studia_mgr/Semestr_I/PBR/M1/data/cleaned_data.csv')
-
-model_data<- data.frame(link = repo_data$ðŸ...Link.do.GitHuba,  dur = repo_data$âŒš.Jak.dÅ.ugo.to.trwaÅ.o., progDur = repo_data$ðŸ...Jak.dÅ.ugo.trwa.Twoja.przygoda.z.programowaniem.,
-                        interviewPer = repo_data$ðŸ..â.ðŸ...Jaki.procent.pracodawcÃ³w.zaprosiÅ.o.CiÄ..na.rozmowÄ..technicznÄ..po.przesÅ.aniu.CV1.,
-                        contactPer = repo_data$ðŸ..â.âš.ï..Jaki.procent.pracodawcÃ³w.siÄ..do.Ciebie.odezwaÅ.o.po.przesÅ.aniu.CV1.
+model_data<- data.frame(link = repo_data$X.U.0001F431..Link.do.GitHuba,
+                        dur = repo_data$X.U.231A..Jak.d³ugo.to.trwa³o.,
+                        progDur = repo_data$X.U.0001F9ED..Jak.d³ugo.trwa.Twoja.przygoda.z.programowaniem.,
+                        interviewPer = repo_data$X.U.0001F468..U.200D..U.0001F527..Jaki.procent.pracodawców.zaprosi³o.Ciê.na.rozmowê.techniczn¹.po.przes³aniu.CV1.,
+                        contactPer = repo_data$X.U.0001F468..U.200D..U.2696..U.FE0F..Jaki.procent.pracodawców.siê.do.Ciebie.odezwa³o.po.przes³aniu.CV1.
 )
 
+#Taking first 10 rows
 model_data <- model_data[1:10,]
 
+#Extracting usernames from CSV file
 names <- strsplit(model_data$link, "/")
 namesShort <- list()
 
@@ -187,11 +200,14 @@ for(n in names) {
   namesShort <- c(namesShort, tail(n, 1) )
 }
 
+#Creation of empty dataframe
 resultFrame <- data.frame(userName=character(),bio=character(), isHireable=character())
 
+#Collecting data for every nickname from github
 for (n in namesShort){
   resultFrame <- rbind(resultFrame, getDataFromGitHub(n))
 }
 
+#Concat of data from google form and github request
 result <- cbind(model_data,resultFrame)
 
