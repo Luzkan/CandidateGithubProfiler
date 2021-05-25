@@ -22,7 +22,7 @@ def arguments_parser():
     return parser.parse_args()
 
 
-def subprocess_run(args_list: list, username: str, cwd_path: Path = "", stdout_path: Path = ""):
+def subprocess_run(args_list: list, username: str, cwd_path: Path = None, stdout_path: Path = None) -> None:
     """ Executes commands in given ./data/repostiries/{username} """
     if not cwd_path:
         cwd_path = Path(f"{REPOSITORIES_DIR}/{username}")
@@ -31,14 +31,14 @@ def subprocess_run(args_list: list, username: str, cwd_path: Path = "", stdout_p
     try:
         if stdout_path:
             with open(stdout_path, "w") as output_file:
-                return Popen(args=args_list, cwd=cwd_path, stdout=output_file)
-        return Popen(args=args_list, cwd=cwd_path)
+                Popen(args=args_list, cwd=cwd_path, stdout=output_file)
+        Popen(args=args_list, cwd=cwd_path)
     except NotADirectoryError:
         log.error("Error: Wrong directory path.")
 
 
-def clone_repository(url: str, username: str) -> str:
-    return subprocess_run(["git", "clone", url], username)
+def clone_repository(url: str, username: str) -> None:
+    subprocess_run(["git", "clone", url], username)
 
 
 async def fetch_repositories(username: str, repositories: list) -> None:
@@ -55,7 +55,7 @@ def get_repositories_directory_size() -> int:
     return sum(f.stat().st_size for f in Path(REPOSITORIES_DIR).glob('**/*') if f.is_file())
 
 
-async def wait_for_repos_download(task: asyncio.Task):
+async def wait_for_repos(task: asyncio.Task, msg: str):
     last_dir_size = get_repositories_directory_size()
     await task
     await asyncio.sleep(DELAY/2)
@@ -63,27 +63,27 @@ async def wait_for_repos_download(task: asyncio.Task):
 
     while last_dir_size != curr_dir_size:
         await asyncio.sleep(DELAY)
-        log.info(f"Repositories are still being fetched... ({last_dir_size} -> {curr_dir_size})")
+        log.info(f"Repositories are still being {msg}... ({last_dir_size} -> {curr_dir_size})")
         last_dir_size = curr_dir_size
         curr_dir_size = get_repositories_directory_size()
-    log.info(f"All Repositories Fetched {last_dir_size} / {curr_dir_size}")
+    log.info(f"All Repositories {msg} {last_dir_size} / {curr_dir_size}")
 
 
-async def lint_repositories(username: str) -> List[str]:
+async def lint_repositories(username: str) -> List[Path]:
     user_repositories_path = Path(f'{REPOSITORIES_DIR}/{username}')
     local_repo_paths = [repo for repo in user_repositories_path.iterdir() if repo.is_dir()]
     output_files = []
 
     for local_repo_path in local_repo_paths:
         log.info(f"Running linter in: {local_repo_path.name} ({local_repo_path})")
-        cmd_lint = "npx mega-linter-runner"
+        node_exe_path = Path(r'C:\Program Files\nodejs\npx.cmd')
+        cmd_lint = f"{node_exe_path} mega-linter-runner"
         cmd_flavour = "--flavor all -e 'ENABLE=,DOCKERFILE,MARKDOWN,YAML'"
         cmd_e = "-e 'SHOW_ELAPSED_TIME=true'"
-        output_file = Path(f'{local_repo_path}/{username}.txt')
+        output_file = Path(f'{local_repo_path}/{username}-{local_repo_path.name}.txt')
         cmd = f"{cmd_lint} {cmd_flavour} {cmd_e}".split(" ")
-        # TODO: There's a problem running the npx mega-linter-runner
-        #       but i'm out of the time for today :(
-        subprocess_run(['git', 'status'], username, local_repo_path, output_file)
+        log.info(f"Command: {cmd}")
+        subprocess_run(cmd, username, local_repo_path, output_file)
         output_files.append(output_file)
 
     return output_files
@@ -91,7 +91,9 @@ async def lint_repositories(username: str) -> List[str]:
 
 async def parse_linted_output_tables(linter_output_filepaths: List[Path]) -> None:
     mls = MegaLinterScraper()
+    print(f"Halo {linter_output_filepaths}")
     for output_file in linter_output_filepaths:
+        print(f"Halo: {output_file}")
         log.info(f"Parsing linter log for repository {output_file.name}.")
         mls.run(output_file.name, output_file.parents[0], f"{output_file.parents[0]}/{output_file.stem}.json")
         log.info(f"Parsed lint of {output_file.name} saved in: {output_file.parents[0]}/{output_file.stem}.json")
@@ -99,9 +101,10 @@ async def parse_linted_output_tables(linter_output_filepaths: List[Path]) -> Non
 
 async def main(username: str, repositories: list) -> None:
     task_fetch = asyncio.create_task(fetch_repositories(username, repositories))
-    await wait_for_repos_download(task_fetch)
-    linter_output_filepaths = await asyncio.create_task(lint_repositories(username))
-    await asyncio.create_task(parse_linted_output_tables(linter_output_filepaths))
+    await wait_for_repos(task_fetch, "fetched")
+    linter_output_filepaths = asyncio.create_task(lint_repositories(username))
+    await wait_for_repos(linter_output_filepaths, "linted")
+    await asyncio.create_task(parse_linted_output_tables(linter_output_filepaths.result()))
     log.info("Success.")
 
 
