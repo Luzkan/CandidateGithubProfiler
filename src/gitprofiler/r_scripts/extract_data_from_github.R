@@ -94,15 +94,20 @@ getLanguages <- function(languages) {
 #Example usage : getCommitMsg(commitsList, "Username")
 getCommitMsg <- function(commits, userName) {
   toRet <- ""
-  for (p in commits) {
-    tmp <- p$node$author$user$login
-    for(i in 1:length(tmp)){
-      if( !is.na(tmp[i]) && tmp[i] == userName){
-        msg <- p$node$message[i]
-        if(!is.na(msg)){
-          toRet <- paste(toRet, msg,";" )
+  if(!is.null(commits)){
+    for (p in commits) {
+      tmp <- p$node$author$user
+      
+      if(!is.null(tmp) && !is.na(tmp)){
+        for(i in 1:length(tmp$login)){
+          if( !is.na(tmp$login[i]) && !is.null(tmp$login[i]) && tmp$login[i] == userName){
+            msg <- p$node$message[i]
+            if(!is.na(msg)){
+              toRet <- paste(toRet, msg,";" )
+            }
+            
+          }
         }
-        
       }
     }
   }
@@ -116,11 +121,13 @@ calculateAVGCommitTime <- function(commits, userName) {
   commitDates <- list()
   
   for(d in commits) {
-    tmp <- d$node$author$user$login
-    for(i in 1:length(tmp)){
-      if( !is.na(tmp[i]) && tmp[i] == userName){
+    tmp <- d$node$author$user
+    if(!is.null(tmp) && !is.na(tmp)){
+    for(i in 1:length(tmp$login)){
+      if( !is.na(tmp$login[i]) && !is.null(tmp$login[i]) && tmp$login[i] == userName){
         commitDates <- c(commitDates,d$node$committedDate[i])
       }
+    }
     }
   }
   time_between_commits <- list()
@@ -153,8 +160,8 @@ getDataFromGitHub <- function(userName) {
   json <- fromJSON(connection$exec(new_query$queries$mydata))
   
   #CheckIfExecuted query
-  if(is.null(json$data$repositoryOwner)){
-    return (data.frame(userName, repos=NA,bio=NA,isHireable=NA,commitMessages=NA,languages=NA, avgCommitTime=NA))
+  if(is.null(json$data$repositoryOwner) || length(json$data$repositoryOwner$repositories$edges) < 1){
+    return (data.frame(userName, repos=NA,bio=NA,isHireable=NA,languages=NA, avgCommitTime=NA))
   }
   
   #Data from JSON
@@ -173,7 +180,6 @@ getDataFromGitHub <- function(userName) {
              repos = extractRepoNames(repositoriesList),
              bio = bio, 
              isHireable = isHireable,
-             commitMessages = getCommitMsg(commitMsgE,userName),
              languages = getLanguages(languages),
              avgCommitTime=calculateAVGCommitTime(commitMsgE, userName))
 }
@@ -189,11 +195,10 @@ model_data<- data.frame(link = repo_data$X.U.0001F431..Link.do.GitHuba,
                         contactPer = repo_data$X.U.0001F468..U.200D..U.2696..U.FE0F..Jaki.procent.pracodawców.siê.do.Ciebie.odezwa³o.po.przes³aniu.CV1.
 )
 
-#Taking first 10 rows
-model_data <- model_data[1:10,]
+
 
 #Extracting usernames from CSV file
-names <- strsplit(model_data$link, "/")
+names <- strsplit(repo_data$X.U.0001F431..Link.do.GitHuba, "/")
 namesShort <- list()
 
 for(n in names) {
@@ -208,6 +213,8 @@ for (n in namesShort){
   resultFrame <- rbind(resultFrame, getDataFromGitHub(n))
 }
 
-#Concat of data from google form and github request
-result <- cbind(model_data,resultFrame)
 
+#Concat of data from google form and github request
+result <- cbind(repo_data,resultFrame)
+
+write.csv(x=result, file="Results.csv")
