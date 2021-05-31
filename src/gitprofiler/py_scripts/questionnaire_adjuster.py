@@ -286,6 +286,57 @@ def validate_urls(da):
     da.data["Valid GitHub"] = result
 
 
+def rename_columns(da):
+    da.data.rename(columns={
+        '🐱 Link do GitHuba': 'GithubLink',
+        '🧭 Jak długo trwa Twoja przygoda z programowaniem?': 'ProgrammingExp',
+        '👨‍💻 Czy tworzyłeś coś "własnego"?': 'PersonalWorkExp',
+        '🔨 Czy udało Ci się znaleźć pracę jako programista/tka?': 'FoundWork',
+        '📅 W którym roku rozpocząłeś/aś szukać pracy jako Entry / Junior programista?': 'StartWorkSearchDate',
+        '🚶 Jak oceniasz szybkość znalezienia pracy?': 'SelfRateWorkFindTime',
+        '⌚ Jak długo to trwało?': 'WorkFindTime',
+        '🕰️ Oceniasz, że znalazłeś/aś pracę w czasie adekwatnym do umiejętności?': 'SelfRateAdequteTimeWorkFindTime',
+        '👨‍💼 Ile rozmów kwalifikacyjnych musiałeś/aś przejść zanim udało Ci się znaleźć pracę?': 'InterviewsBeforeFoundWork',
+        '📬 Do ilu pracodawców wysłałeś/aś CV (mniej więcej)?': 'CVsSend',
+        '👨‍⚖️ Jaki procent pracodawców się do Ciebie odezwało po przesłaniu CV1?': 'CVsPercentRespondRate',
+        '👨‍🔧 Jaki procent pracodawców zaprosiło Cię na rozmowę techniczną po przesłaniu CV1?': 'CVsTechInterviewPercentRespondRate',
+        '🔏 Zgoda na przetwarzanie informacji ': 'Consent',
+        '😶 Jakbyś się zaklasyfikował/a?': 'SelfClassifiedRole',
+        '📦 Tech Stack': 'TechStack',
+        '🟢 Język #1': 'Language1',
+        '🟢 Ocena Języka #1': 'LanguageRate1',
+        '🔵 Język #2': 'Language2',
+        '🔵 Ocena Języka #2': 'LanguageRate2',
+        '🟣 Język #3': 'Language3',
+        '🟣 Ocena Języka #3': 'LanguageRate3',
+        'Komunikatywność': 'Communicativeness',
+        'Organizacja': 'SelfOrganization',
+        'Umiejętności Analityczne': 'AnalyticalSkills',
+        'Kreatywność': 'Creativity',
+        'Zarządzanie Projektem': 'ProjectManagement',
+        'Dyscyplina': 'Discipline',
+        'Ciekawość': 'Curiosity',
+        'Zaradność': 'Resourcefulness',
+        'Dostępność Czasowa': 'TimeAvailability',
+        'Publiczne Przemówienia': 'PublicSpeeches',
+        'Prezentowanie': 'Presenting',
+        'Innowacyjność': 'Innovation',
+        'Przywództwo': 'Leadership',
+        'Tolerancja na zmiany i niepewność': 'ToleranceToChangeAndUncertainty',
+        'Pisanie (reporty/dokumentacje)': 'Writing',
+        'Nie opisałem żadnych umiejętności miękkich i raczej też nie da się wydedukować takich z mojego CV': 'NoDescribedSoftSkills',
+        'Studia': 'Studies',
+        'Bootcamp': 'Bootcamp',
+        'Kontrybuowanie do open-source': 'OpenSourceContribution',
+        'Stworzenie publicznej libki': 'PublicLibraryCreation',
+        'Stworzenie własnego programu/apki': 'PersonalAppCreation',
+        'Freelancerskie zlecenia': 'Freelancing',
+        'Uruchomienie własnego projektu': 'PersonalProjectLaunching',
+        'Kursy Online / Certyfikaty': 'OnlineCoursesCertificates',
+        'Valid GitHub': 'ValidGitHub'
+    }, inplace=True)
+
+
 def main():
     # Loading Data
     data_source = DataSource("Questionnaire", "./data/questionnaire.csv", ",")
@@ -315,6 +366,9 @@ def main():
 
     # Check if given GitHub is valid
     validate_urls(da)
+
+    # Rename column names to english language
+    rename_columns(da)
 
     # Check & Save
     da.check_data()
