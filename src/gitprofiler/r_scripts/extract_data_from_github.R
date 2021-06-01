@@ -148,7 +148,7 @@ calculateAVGCommitTime <- function(commits, userName) {
 #Function retrives data from github based on provided username and then collects it to data.frame
 #Example usage : getDataFromGitHub("Username")
 getDataFromGitHub <- function(userName) {
-  token <- <YOUR_TOKEN>
+  token <- "<YOUR TOKEN>"
   connection <- GraphqlClient$new(
     url = "https://api.github.com/graphql",
     headers = list(Authorization = paste0("Bearer ", token))
@@ -188,17 +188,8 @@ getDataFromGitHub <- function(userName) {
 #Reading data from CSV file provided from questionare
 repo_data <- read.csv('D:/Studia_mgr/Semestr_I/PBR/M1/data/cleaned_data.csv', encoding = "UTF-8")
 
-model_data<- data.frame(link = repo_data$X.U.0001F431..Link.do.GitHuba,
-                        dur = repo_data$X.U.231A..Jak.d³ugo.to.trwa³o.,
-                        progDur = repo_data$X.U.0001F9ED..Jak.d³ugo.trwa.Twoja.przygoda.z.programowaniem.,
-                        interviewPer = repo_data$X.U.0001F468..U.200D..U.0001F527..Jaki.procent.pracodawców.zaprosi³o.Ciê.na.rozmowê.techniczn¹.po.przes³aniu.CV1.,
-                        contactPer = repo_data$X.U.0001F468..U.200D..U.2696..U.FE0F..Jaki.procent.pracodawców.siê.do.Ciebie.odezwa³o.po.przes³aniu.CV1.
-)
-
-
-
 #Extracting usernames from CSV file
-names <- strsplit(repo_data$X.U.0001F431..Link.do.GitHuba, "/")
+names <- strsplit(repo_data$GithubLink, "/")
 namesShort <- list()
 
 for(n in names) {
