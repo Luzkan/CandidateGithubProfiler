@@ -148,7 +148,7 @@ calculateAVGCommitTime <- function(commits, userName) {
 #Function retrives data from github based on provided username and then collects it to data.frame
 #Example usage : getDataFromGitHub("Username")
 getDataFromGitHub <- function(userName) {
-  token <- "f927a6de5f6c2edfd93743bb299ecd11f3f011d7"
+  token <- <YOUR_TOKEN>
   connection <- GraphqlClient$new(
     url = "https://api.github.com/graphql",
     headers = list(Authorization = paste0("Bearer ", token))
