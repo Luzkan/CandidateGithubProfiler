@@ -1,0 +1,457 @@
+\documentclass[graybox]{svmult}
+
+% |-------------------------------------------------------------------------------------
+% | Packages.
+% |
+
+% |--------------------|
+% | Template Packages
+% |
+
+\usepackage{bibentry}
+\usepackage{type1cm}           % Activate if the above 3 fonts are not available on your system.
+
+\usepackage{makeidx}           % Allows index generation.
+\usepackage{graphicx}          % Standard LaTeX graphics tool when including figure files.
+
+\usepackage{multicol}          % Used for the two-column index.
+\usepackage[bottom]{footmisc}  % Places footnotes at page bottom.
+
+\usepackage{newtxtext}
+\usepackage{newtxmath}         % Selects TimesNewRoman as basic font.
+\usepackage{dirtytalk} \newcommand{\mysay}[1]{\say{\textit{#1}}}
+\usepackage{enumerate}
+\usepackage[unicode,colorlinks=true,breaklinks,allcolors=black]{hyperref}
+\usepackage{cleveref}
+\usepackage{ltablex}
+\usepackage{booktabs}
+\usepackage{hyphenat}
+\usepackage{makecell}
+\usepackage{doi}
+\usepackage{enumitem}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{statistics}
+\usetikzlibrary{pgfplots.statistics}
+
+\usepackage{fixme}
+
+% |-------------------------------------------------------------------------------------
+% | Settings.
+% |
+
+\nobibliography*
+\makeindex
+\graphicspath{{img/}}
+
+% |-------------------------------------------------------------------------------------
+
+\begin{document}
+
+\title*{Aktywności w Projekcie}
+\titlerunning{Aktywności w Projekcie - GitHub Profile Evaluation.}
+\author{Marcel Jerzyk, Jakub Litkowski, Jakub Szańca}
+\authorrunning{Marcel Jerzyk, Jakub Litkowski, Jakub Szańca}
+\institute{
+Marcel Jerzyk \at Wroclaw University of Science and Technology, Poland, \email{244979@student.pwr.edu.pl}
+\and Jakub Litkowski \at Wroclaw University of Science and Technology, Poland, \email{242353@student.pwr.edu.pl}
+\and Jakub Szańca \at Wroclaw University of Science and Technology, Poland, \email{242519@student.pwr.edu.pl}
+\and Lech Madeyski \at Wroclaw University of Science and Technology, Poland, \email{lech.madeyski@pwr.edu.pl}
+}
+
+\maketitle
+
+% |-------------------------------------------------------------------------------------
+
+\newpage
+
+\section{Jakub Litkowski (242353)}
+\subsection{Zajęcia 1}
+Unveiling the Technical Roles of GitHub Users :
+\\- Analiza tematu, zapoznanie się z publikacją, znalezienie możliwych kierunków rozszerzenia 
+\\- Zapoznanie się z dostępnym zbiorem danych oraz istniejącymi skryptam, określenie kierunku rozwoju
+\\- Określenie dodatkowych cech pracownika (samotny programista, pracownik zespołowy, doświadczenie?)
+\subsection{Zajęcia 2}
+- Zapoznanie się z GitHubApi, StackExachangeAPI, propozycja innego modelu do klasyfikacji (regresja logistyczna)
+\subsection{Zajęcia 3}
+- Zapoznanie się z publikacją The promises and perils of mining GitHub (Eirini Kalliamvakou, Georgios Gousios, Kelly Blincoe, Leif Singer, Daniel M. German, Daniela Damian) 2014
+\\- W publikacji dokonano badania repozytoriów github oraz wyciągnięto ciekawe wnioski. Duża część repozytoriów przestaje być aktywna po krótkim czasie. W większości użytkownicy wykonują commity bezpośrednio do mastera, bez tworzenia nowych branchy oraz wykonywania pull requestów. Repozytoria wykorzystywane są nie tylko do przechowywania w nich projektów, część z nich stanowi zdalny nośnik danych, a część powstała tylko w ramach eksperymentów. Repozytoria tworzone są również w celach edukacyjnych przez róznych uczniów lub studentów. Aż 71,6\% repozytoriów stanowią repozytoria personalne. Większość pull requestów oznaczone są jako niezmergowane, a w rzeczywistości zostały. Spora część projektów na GitHub jest mirrorem projektów z innych stron sourceforge itp.
+\\ - Zaznajomienie się z budową zapytań poprzez GraphQL w celu pozyskania danych z GitHubApi dotyczących użytkowników. Przygotowanie requestów pozwalających na pobranie danych związanych z repozytoriami, commitami oraz użytkownikami. 
+\\ - Przygotowanie propozycji pytań do ankiety, która ma na celu zebranie odpowiednich danych od developerów, którzy próbują wejść na rynek pracy lub niedawno weszli
+\subsection{Zajecia 4}
+-What skills do IT companies look for in new developers? A study with Stack Overflow jobs.
+João Eduardo Montandon, Cristiano Politowski, Luciana Lourdes Silva, Marco Tulio Valente, Fábio Petrillo, Yann-Gaël Guéhéneuc:
+What skills do IT companies look for in new developers? A study with Stack Overflow jobs. Inf. Softw. Technol. 129: 106429 (2021) -> zapoznaie się z publikacja
+\\- Przygotowanie bardziej rozbudowanego zapytania dla repozytorium z github
+\\- Wstępne zapoznanie się z pakietem mlr do R
+\\- Praca nad search stringiem oraz poszukiwanie publikacji
+\\- Opracowanie dodatkowych pytań do ankiety 
+
+\\ - Do Onboarding Programs Work?
+Adriaan Labuschagne and Reid Holmes
+School of Computer Science
+University of Waterloo
+Waterloo, ON, Canada
+\\ - Matching GitHub developer profiles to job
+advertisements
+
+\subsection{Zajecia 5}
+- Przygotowanie search stringa dla google scholar oraz przegląd publikacji
+\\ - opracowanie listy ciekawych publikacji
+\\ - praca nad skryptem oraz przygotowaniem danych do uczenia
+\\ - Hiring is Broken: What Do Developers Say About Technical Interviews? 
+Mahnaz Behroozi North Carolina State University Raleigh, NC, USA
+Chris Parnin North Carolina State University Raleigh, NC, USA
+Titus Barik Microsoft Redmond, WA, USA
+
+\subsection{Zajecia 6}
+-przygotowanie prezentacji do milestone
+\\-przygotowanie się do prezentacji odnośnie milestone
+\\-poprawienie search stringa
+\\-naprawa błedów ze skryptu
+
+\subsection{Zajecia 7}
+-Dopasowanie danych wyjsciowych w skrypcie
+\\-Zapoznawanie się z MegaLinter w docker
+\\-Analysis of Newcomers Activity in Communicative Posts on GitHub
+\\-Mining GitHub Classroom Commit Behavior in Elective and Introductory Computer Science Courses
+
+\subsection{Zajecia 8}
+-Podsumowanie zebranych wiadomości z publikacji
+\\- Rozwinięcie rozdziału dotyczączego przeglądu publikacji (przedstawienie pytań badawczych, opis budowy search stringa,
+\\- Przedstawienie informacji znalezionych w publikacjach, które odpowiadaja na postawione pytania badawcze
+\\ - Opis dotychczasowego procesu zbierania danych
+
+\subsection{Zajęcia 9}
+-poprawa artykułu (częsci dotyczacej search stringow)
+\\- wstępna budowa modelu w mlr za pomoca danych z ankiet z google form (dane zostaly zalabelowane recznie oraz uzyte zostalo 20 wierszy i nie wszystkie kolumny)
+\\- wstepna selekcja wymaganych kolumn
+\\- skrypt do zczytywania danych z graphql i githuba
+
+\subsection{Zajecia 10}
+- przygotowanie skryptu pobierajacego dane z profilu github z linku podanego w ankiecie
+\\ -refaktoryzacja dotychczas istniejacych zapytan (wydzielenie funkcji przygotowywujących poszczególne kolumny)
+\\ - przygotowanie dynamicznego zapytania do githuba na podstawie nazwy użytkownika
+\\ - połączenie danych z ankiety wraz z danymi uzyskanymi za pomocą zapytania do github
+
+\subsection{Zajecia 11}
+- zebranie danych z github oraz polaczenie ich z danymi z ankiety
+\\- naprawa błędów w skrypcie
+\\- dodanie dokumentacji do skryptu (opisy poszczególnych sekcji)
+\\- praca nad artykułem (opis skryptu do zbierania danych z github)
+
+% |-------------------------------------------------------------------------------------
+
+\newpage
+
+\section{Jakub Szańca (242519)}
+\subsection{Zajęcia 1}
+
+Zapoznanie się z publikacją "Mining the Technical Roles of GitHub Users". Wstępne określenie możliwości dotycząe rozszerzenia tematu. Mogą one w większym stopniu dotyczyć języków, bibliotek lub frameworków, w których developerzy się specjalizują, czy też umiejętności miękkich, które programiści posiadają.
+\subsection{Zajęcia 2}
+Przegląd dokumentacji gitHubApi oraz Stack Exchange API. Określenie potencjalnie przydatnych zapytań.
+\subsection{Zajęcia 3}
+1) Zaznajomienie się z publikacją „Identifying experts in software libraries and frameworks among GitHub users”, J.E. Montandon, L.L. Silva, M.T. Valente, 2019. Dotyczy ona próby zidentyfikowania ekspertów różnych bibliotek i frameworków na podstawie repozytoriów umieszczonych przez użytkowników na platformie Github. Wybrane zagadnienia poruszone w publikacji:\\
+- Wskazano problem dotyczący niecałkowitego odzwierciedlenia umiejętności użytkownika na podstawie jego publicznych repozytoriów. Jak wskazali ankietowani, nie wszystkie ich repozytoria są publiczne, a także ich udostępniony kod nie zawsze jest najlepszej jakości, natomiast często większymi projektami, które nie są open source’owe zajmują się w pracy – dla nas nie jest to znaczący problem, gdyż chcemy określić umiejętności developerów poszukujących pracy, którzy z własnej woli powinni udostępniać swoje repozytoria.\\
+- Dla różnych frameworków/bibliotek wskazano inne cechy, które pomagają w zidentyfikowaniu umiejętności programisty. Jednak dla każdego przypadku wyróżniono aktywność developerów, czyli m.in. liczbę/częstotliwość commitów dotyczących projektów/plików importujących daną bibliotekę.\\
+- Zauważono, iż udział w wysoko notowanych projektach zwiększa prawdopodobieństwo uznania danego developera za eksperta.\\
+2) Opracowanie propozycji pytań przeznaczonych do przeprowadzenia ankiety dotyczącej procesu poszukiwania pracy przez developerów\\
+3) Przegląd dokumentacji GitHub GraphQL Api. Zapoznanie się z ideą budowania zapytań, zaproponowanie przykładowych zapytań, które można będzie wykorzystać w przyszłości.
+\subsection{Zajęcia 4}
+Przegląd publikacji: „An Online Developer Profiling Tool Based on Analysis of GitLab Repositories” Jing Wang, Xiangxin Meng, Huimin Wang, and Hailong Sun, oraz Candidate Selection for the Interview using GitHub Profile and User Analysis for the Position of Software Engineer R.G.U.S. Gajanayake, M.H.M. Hiras, P.I.N. Gunathunga, E.G. Janith Supun, Anuradha Karunasenn, Pradeepa Bandara\\
+Zaproponowanie api zwracającego liczbę m.in. linii kodu w danym języku dla wybranego repozytorium(gihubApi podaje tylko bajty) oraz zaproponowanie przykładowych search stringów w celu łatwiejszego przeszukiwania publikacji.
+
+\subsection{Zajęcia 5}
+- Zmiany w skrypcie (średni czas pomiędzy commitami)\\
+- Przegląd publikacji (na podstawie opracowanego search string) dostępnych w bazie Scopus oraz ich selekcja (na podstawie schematu wyboru bardziej znaczących publikacji)
+
+\subsection{Zajęcia 6}
+-Definicja ostatecznego search stringa na podstawie postawionych pytań badawczych
+-Przygotowanie prezentacji(milestone)
+
+\subsection{Zajęcia 7}
+-Przegląd publikacji: „What Makes a Good Developer? An Empirical Study of Developers' Technical and Social Competencies”  Cheng Zhou, Sandeep Kaur Kuttal and Iftekhar Ahmed\\
+-Zapoznanie się z pakietem mlr - przeprowadzenie próbnej klasyfikacji repozytoriów na podstawie przykładowego, 10 elementowego zbioru danych.
+
+\subsection{Zajęcia 8}
+Rozwój artykułu - udział przy pisaniu:\\
+- rozdziału 2 (Systematic Review)\\
+- rozdziału 3 (Literature Review – wybrane publikacje)\\
+- rozdziału 4 (Metheodology – Data Preprocessing, rozpoczęcie Creating a Machine Learning Model)
+
+\subsection{Zajęcia 9}
+-Edycja i poprawa search stringa dla bazy Scopus\\
+-Utworzenie próbnego modelu w mlr dla wybranych danych zgromadzonych w ankietach\\
+
+\subsection{Zajęcia 10}
+- Utworzenie wskaźników (umiejętności miękkich i rodzaju doświadczenia) na podstawie wartości logicznych z ankiety\\
+- Zapoznanie się z cross walidacją w pakiecie mlr\\
+
+\subsection{Zajęcia 11}
+Artykuł:\\
+- znalezienie artykułów w języku angielskim w celu zastąpnienia polskich:\\
+"Who Killed The Junior Developer?", "The Plight of the Junior Software Developer", "The Effects of COVID-19 on Junior Developers-2020 Job Market"\\
+- napisanie szkieletu podrozdziału dotyczącego skryptu tworzącego ml model\\
+- query jako zrzut ekranu\\
+- poprawa błędów w latex\\
+
+% |-------------------------------------------------------------------------------------
+
+\newpage
+
+\section{Marcel Jerzyk (244979)}
+\subsection{Zajęcia 1 (\emph{09.03.21 - 16.04.21})}
+Przegląd literatury i publikacji, wiele pobieżnie, głębiej z tematu "Continuous Defect Prediction" oraz ML-driven dostosowania parametrów przy metaheurystykach. Całkiem interesujący był tool, który generuje obrazy na podstawie jednego wyrazu. Zebranie drużyny na prywatnym czacie.
+\subsection{Zajęcia 2 \emph{16.03.21 - 23.04.21}}
+Przedstawienie propozycji ('continous quality', 'github profile quality analyser'). Spisanie pomysłów. Team Expectations.
+\subsection{Zajęcia 3 (\emph{23.03.21 - 30.04.21})}
+@19.03.2021 Zabetonowanie kierunku rozwoju prac badawczych. Ostatecznie będziemy szli w kierunku toola, który będzie weryfikował jakość potencjalnego kandydata. W rozpratrywanej pracy niedopatrzeniem bylo wzięcie rekruterów z portalu StackOverflow, kiedy w realnej sytuacji, myślę że nie jest ryzykownym stwierdzić, iż rekruterzy rzadko kiedy mają doświadczenie programistyczne - a co dopiero własne konta na StackOverflow (swoją drogą, że ostatecznie było tylko 7 respondentów). Zauważmy, że w obecnych czasach, od początku roku 2020 jest znacząca zmiana na rynku IT - obecnie juniorzy oraz entry level programiści mają zdecydowanie ciężej w porównaniu do lat poprzednich. Na jedno miejsce składane jest bardzo dużo CV. Tak więc nasz tool będzie pomagał rekruterom/rekruterkom weryfikować potencjalnego kandydata przy użciu jego profilu GitHub. Do tej pory stanowił on raczej mało znaczącą informację - coś czego rekruter nie może wykorzystać (bazuje się na historii doświadczeń, pracy i edukacji, a link do GitHuba nie jest tak znaczący). Warto zamienić tą sprawę z nieznaczącej informacji, na coś co jest dość silnym predykatem tego czy dana osoba jest potencjalnie dobrym pracnowikiem. Pomysł gwarantuje też dość łatwy sposób na zebranie danych przy użyciu portalu Facebook (grupek) - wystarczy przeprowadzić ankietę, w której uczestniczy w bardzo krótkiej ankiecie odpowiedzą na pytania oraz dołączą swój profil na GitHubie. Proponowany model mógłby "pluć" booleanem - czy dany kandydat ma potencjał, czy też nie. Pomysł jest również przyszłościowo rozwojowy - możnaby go rozwijać np.: dorzucając warunek, że ten ktoś miałby pełnić rolę Frontend Developera (wykorzystując inne badania etc.). 
+
+Obecnie praca zaplanowana jest na przeczytanie kolejnych publikacji oraz sporządzenie użytecznych requestów przy pomocy GraphQL, którymi moglibyśmy pozyskać (jak najwięcej) danych. Wstępnie zostanie sporządany abstract oraz wprowadzenie.
+
+@21.03.2021 Napisanie Abstractu (Context / Objective / Methods) + poparcie paroma źródłami.
+\subsection{Zajęcia 4 (\emph{30.03.21 - 06.04.21})}
+
+Skonstruowanie całej ankiety z pytań, które pozbieraliśmy (to zajęło dłużej niż myślałem).
+
+Zaplanowanie dwóch tasków:
+\begin{itemize}
+  \item Jak już mamy ten request to napisać zapisywanie pozyskanych informacji do .csv albo .jsona, jeszcze myślę nad strukturą/modelem pliku żeby nie zapedzic sie w zaułek
+  \item Jak już mamy ten request to po prostu wziąć parę repozytoriów (np.: 5) co wyglądają jakkolwiek i zapisać zebrane info jakkolwiek -> ocenić na szybciora wg wlasnego uznanai czy to dobre repo czy nie dobre i teraz: odpalić jakkolwiek jakiś algorytm machine learningowy i zobaczyć jak się sprawuje
+\end{itemize}
+Nie ma jakiegoś dobrego źródła informacji tego jak wygląda sam proces rekrutacji de-facto na naukowym papierze, choć wiemy jak to mniej więcej wygląda. Zapisałem się dodatkowo na seminarium dla stypendystów Santander o budowaniu CV.
+
+\subsection{Zajęcia 5 (\emph{06.04.21 - 13.04.21})}
+Posprawdzałem parę papierów w celu zweryfikowania informacji i napisałem Introduction. Co za tym idzie - do bibliografii dołączyłem:
+\begin{itemize}
+  \item Popularność GitHuba na podstawie statystyk z query ilości użytkowników (na dzień dzisiejszy - 55mln). By zaprezentować wzrost popularności, również dołączyłem link do web-archive, w którym podobne query zostało wykonane ze Stycznia 2020 - wtedy było to 36 mln użytkowników.
+  \item Dabbish - o githubie jako społeczności, świadomości developerów na temat zastosowania GitHuba do weryfikacji umiejętności i oceny ich pracy
+  \item Singer - dodatkowo dorzuca on zweryfikowaną informacje, że ilość follerwsów na GitHubie ma także znaczenie dla innych developerow.
+  \item Santander seminarium - stąd dużo informacji (m.in. co jest ważne dla rekrutera/rekruterki w CV, na co zwraca się uwagę, jak długo sprawdza się pojedyncze CV)
+  \item Capiluppi - informacja o tym, że obecny proces weryfikacji CV ma problemy, które my zauważliśmy, co nie zmieniło się od 2013, kiedy napisali swoją publikacje
+  \item TechnicalRole - to wiadomo, to czytaliśmy wszyscy
+  \item SoftwareLibraries - to o czym opowiedziałeś mi Szańca, też to przeglądałem i dodałem z tego informacje, że można pozyskać info o libkach i frameworkach używanych
+  \item HiringProcess - poparcie tego o czym napisałem w akapicie to \emph{Zajęcia 4} - proces rekrutacji w IT nie jest bliżej opisany w badaniu naukowym (polega się na ogólno-znanych konceptach, tak jak to mniej albo nawet i więcej developerzy z branży rozumieją). 
+\end{itemize}
+
+W introduction również napisałem akapit, w którym wspominam czym nasza publikacja będzie się różnić od innego badania. Na wstępie zwróciłem uwagę, że reprezentowana grupa badawcza rekruterów z badania o Mining Tech from GH jest wyjątkowa - składa się z developerów-rekruterów, co jest sytuacją bardzo wyjątkową.
+
+\subsection{Zajęcia 6 (\emph{13.04.21 - 20.04.21})}
+Wczytywanie się w \emph{GDPR} (\emph{RODO}). Generalnie zasada jest taka, że jak się ma jakiekolwiek wątpliwości, to lepiej jest klauzule wrzucić. Jak już się ją wrzuca, to trzeba machnąć całą politykę prywatności, ponieważ obywatelom (w tym przypadku - \emph{,,badanym''}) przysługuje garść praw i informacji, z czego najważniejsze:
+
+\begin{itemize}
+  \item Jakie informacje są gromadzone oraz w jakim celu są one gromadzone.
+  \item Procesowanie i przechowywanie informacji - jak będą traktowane pozyskane informacje, kto będzie miał do nich dostęp oraz dlaczego. Do kiedy i komu będą przekazywane (rozróżniając ujawnienie i dostęp).
+  \item Ujawnienie danych - czy, komu i w jaki sposób informacje będą przekazywane. 
+  \item Dostęp do danych - podobnie jak wyżej, ale tym razem sam \emph{,,badany''} może poprosić o wszelkie swoje dane, jakie są o nim zgromadzone (potrzebne jest umożliwienie kontaktu)
+  \item ,,Zabranie'' zgody i usunięcie danych - \emph{,,badany''} musi mieć możliwość wysłać request, który wymaga od nas usunięcia jego danych.
+\end{itemize}
+
+A wątpliwości są, gdyż ich nie rozwiałem po przeglądnięciu pierwszej strony wyszukiwania Google'a, dla z 10 różnych fraz i po Polsku i po Angielsku. Szczerze to myślałem, że to coś szybkiego na raz dwa, ale litera prawna jest jednak bardziej skomplikowana. 
+
+Samo ogólnie pojęte \emph{User ID} \textbf{można} już klasyfikować jako danę personalną - wszystko co gdzieś może prowadzić do identyfikacji kogoś gdzieś. Nawet w przypadku, gdy identyfikacja to zawężone grono (np.: po jednej wrażliwej informacji dojść do miejsca pracy, w której pracuje tylko 5 osób, to już jest coś co podlega pod RODO). Ostatecznie:
+
+\say{Wyrażam zgodę na przetwarzanie mojej nazwy użytkownika na portalu GitHub dla potrzeb niezbędnych do realizacji procesu badania naukowego prowadzonego przez trój-osobową grupę studentów Politechniki Wrocławskiej (Marcel Jerzyk, Jakub Litkowski, Jakub Szańca) , zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (\emph{RODO}). Ta informacja (github\_username) będzie traktowana jako poufna oraz zostanie zanonimizowana, jak tylko nie będzie ona stanowiła kluczowej w kontekście prowadzonych badań.} 
+
+W tym według mnie zawierają się przejrzyście wszystkie informacje, tak by wszystko było okej - kim jesteśmy, dlaczego przetwarzamy tę informację, na jakiej podstawie prawnej, co się z tą informacją stanie, są nasze dane jako kontakt (okres czasu przetwarzania). Kontakt służy jako sposób wysłania prośby o cofnięcie zgody na przetwarzanie, zrealizowanie prawa do dostępu o danej lub poprawienia. 
+
+Widziałem też takie punkty jak \hyperlink{https://gdpr.pl/baza-wiedzy/akty-prawne/interaktywny-tekst-gdpr/artykul-9-przetwarzanie-szczegolnych-kategorii-danych-osobowych}{\emph{Artykuł 9 Ustawa 2, punkt j)}}, ale no, raczej lepiej być safe \& sound. W sumie podkreślam najważniejszy cytat (z \textbf{artykułu 4.1}):
+
+\say{Any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, \textbf{an online identifier} or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person.}
+
+\subsection{Zajęcia 7 (\emph{20.04.21 - 27.04.21})}
+
+Przygotowanie \href{https://github.com/pwr-pbr21/M1/commit/34a82a756464be4957f9512095e1a7ced9c700f6}{README.md} z instrukcjami:
+
+\begin{itemize}
+  \item Wymagania biblioteczne/narzędziowe projektu.
+  \item Dokładny opis stworzenia personalnego klucza GitHub, dzięki któremu można tworzyć zapytania GraphQL
+  \item Dokładny opis nawigowania po programie oraz kolejnych akcji, od momentu włączenia programu R Studio, aż do finalnej prezentacji wyniku zapytania.
+  \item Dokładny opis wdrożenia \emph{Mega Lintera} do dowolnego projektu, konfiguracja oraz nawigacja do miejsca, w którym można obejrzeć jego output.
+\end{itemize}
+
+Poprawa ankiety w oparciu o feedback o znajomych (sformułowanie pytań, uwzględnienie zaimków żeńskich, poprawa odpowiedzi). Opublikowanie ankiety na dwóch grupkach zrzeszających ludzi koło IT (w przeważającej ilości programistów). 
+
+Templatka prezentacji, poprawa wizualna zawartości prezentacji i animacji, dorzucenie obrazków i przeformatowanie. Dodanie czterech wstępnych wyników z ankiety.
+
+\subsection{Zajęcia 8 (\emph{27.04.21 - 04.05.21})}
+
+Analiza użycia, instalacja i uruchomienie środowiska Dockera. ,,Zainstalowałem'' Mega Lintera oraz sprawdziłem go w użyciu. Przenalizowałem jego dokumnetacje - w szczególności opcje konfiguracji, dostępne flagi, tryby oraz opcje uruchomienia.
+
+Stawiałem parę hipotez i badałem jego output log po użyciu na różnych repozytoriach. Przeglądałem jakie dane mogą być jeszcze potencjalnie przydatne oraz możliwości ich wydobycia. Patrzyłem, czy jest możliwość jakiegoś łatwego dostępu do wygenerowanych informacji. 
+
+Spisałem do pliku \emph{README.md} w jaki sposób każdy może odpalić Mega Lintera, wraz z instrukcją instalacji dockera oraz potrzebnej komendy, a także zwróciłem uwagę na to jak ,,miejscożerny'' jest Mega Linter (40GB). 
+
+Koniec końców:
+
+\begin{itemize}
+  \item Mega Linter ma tabelę summary, w której znajduje się informacja o ilości plików wykrytych przez dany linter dla danego języka oraz ile z tych plików jest automatycznie poprawialnych oraz ile z tych plików dalej ma jakieś ważniejsze błędy.
+  \item Znajduje się tam również tabela zawieracjąca informajce o zduplikowanych liniach również per język.
+  \item Praktycznie kazdy język jest obsługiwany, a na pewno każdy, który został zadeklarowany przez osoby ankietujące (wykryłem, że nie jest obsługiwany np.: Prolog oraz Ada).
+\end{itemize}
+
+Zająłem się też ,,kuracją'' ankiety - wszelkie odpowiadanie na komentarze w serwisie społecznościowym, na którym została ona umieszczona. Obserowawałem i szukałem (,,nieprofesjonalnie'') korelacji pomiędzy zmiennymi, które są widoczne na pierwszy rzut oka. M.in. cecha miękka ''organizacja'' wydaje się mieć wpływ na znalezienie pracy.
+
+Posiadamy około 44 wpisy, które są wraz z prawidłowym linkiem do profilu GitHub, oraz 67 w ogólności (w tym tylko jedna intencjonalnie "trollersko" wypełniona ankieta).
+
+Przeglądałem dane poprzez program Excel i wydają się w porządku, ale według mnie potrzebny będzie jeszcze skrypt, który "dopasuje" idealnie dane, tak aby można było korzystać w pełni z możliwości ankiety oraz w przyszłości przez algorytm.
+
+
+\subsection{Zajęcia 9 (\emph{04.04.21 - 11.05.21})}
+
+Przede wszystkim to napisanie skryptu \textit{scrape.py}, który można znaleźć tu:
+
+\href{scrape.py}{\url{https://github.com/pwr-pbr21/M1/blob/main/src/gitprofiler/py_scripts/scrape.py}}
+1
+Skrypt ten parsuje do formatu \emph{.json} informacje z dwoch tabelek, które generuje \emph{Mega Linter}.
+
+Na wejściu bierze on plik tekstowy wygenerowany przez potok standardowego wyjście po uruchomieniu Mega Lintera. Każda informacja jest odpowiednio przeparsowana, aby informacje na wyjsciu były łątwe do odczytu - wszelkie floaty są floatami, inty intami, a stringi stringami. Całość jest znacznie szerzej opisana w pliku README.md or CHANGELOG.md, czym płynnie przejdę do nastepnego kroku postępu prac.
+
+Stworzyłem plik CHANGELOG.md, który służy jako historia wersji programistycznej strony projektu. Przeanalizowałem historię wydarzeń w repozytorium odświeżając pamięć oraz przepisałem wszelkie wydarzenia do tego pliku. Można tam teraz zobaczyć co się działo w repo z wersji na wersję w czytelny i przystępny sposób.
+
+Dodałem również adekwatną informację do pliku README.md o tym jak użyć skryptu \emph{scrape.py}, co potrzeba aby móc go odpalić oraz jakich wyników można się spodziewać.
+
+Skrypt zbenchmarkowałem na sporym logu (109456 znaków, 12328 wyrazów, 2842 linii) i jego czas mieści się w granicy błędu pomiaru ($<= 0ms$).
+
+Nasze repozytorium na GitHubie od teraz również używa tagów jako historii wersji.
+
+\subsection{Zajęcia 10 (\emph{11.04.21 - 18.05.21})}
+
+\subsubsection{Konwertowanie danych z ankiet (processing)}
+
+Napisanie skryptu, który przekształca dane w .csv na poprawnie przeformatowany i zrestrukturyzowany plik wyjsciowy. Znajduje się on w \emph{Tag v0.4.0} na repozytorium GitHubowym projektu. 
+
+\begin{itemize}
+  \item Dodatkowa kolumna typu boolean, która zawiera informacje czy podany link do GitHub jest rzeczywiście poprawny.
+  \item Merdżuje on kolumny z tym samym pytaniem, które wystąpiły w różnych sekcjach (np.: w zależności od TAK/NIE przy pytaniu o to czy ktoś znalazł pracę, bo to zmieniało formę ułożenia pytań później).
+  \item Merdżuje on rodzaj odpowiedzi w wierszu, w którym odpowidzi do pytania zostały poprawione w trakcie twania ankietyzacji (tworzyły one dodatkowe unikatowe odpowiedzi rózniące się np.: o przecinek etc.)
+  \item Koryguje pojedyncze odpowiedzi, które uniemożliwiały konwersje danych
+  \item Koryguje delimitery (przecinki, kropki, etc.)
+  \item Standaryzuje odpowiedzi
+  \begin{itemize}
+    \item Zamienia odpowiedzi polskie typu ,,5 lat+'', ,,3,5 roku'' na kolumnę integerów z wartościami wpisanymi w miesiącach
+    \item Zamienia odpowiedzi polskie typu ,,7 miesięcy'', ,,ponad 1,5 roku'' na kolumnę integerów z wartościami wpisanymi w miesiącach
+  \end{itemize}
+  \item Zamienia kolumnę na kolumnę typu datetime
+  \begin{itemize}
+    \item W którym roku rozpocząłeś/aś szukać pracy jako Entry / Junior programista?
+  \end{itemize}
+  \item Zamienia kolumny z polskimi wyrazami tak/nie na kolumne wartości boolowskich dla
+  \begin{itemize}
+    \item Czy tworzyłeś coś "własnego"?
+    \item Czy udało Ci się znaleźć pracę jako programista/tka?
+    \item Zgoda na przetwarzanie informacji
+  \end{itemize}
+  \item Zamienia kolumny checkboxowe na dodatkowe kolumny typu boolean dla każdej zmiennej:
+  \begin{itemize}
+    \item 'Komunikatywność', 'Organizacja', 'Umiejętności Analityczne', 'Kreatywność',
+          'Zarządzanie Projektem', 'Dyscyplina', 'Ciekawość', 'Zaradność', 'Dostępność Czasowa',
+          'Publiczne Przemówienia', 'Prezentowanie', 'Negocjowanie', 'Innowacyjność',
+          'Przywództwo', 'Tolerancja na zmiany i niepewność', 'Pisanie (reporty/dokumentacje)',
+          'Nie opisałem żadnych umiejętności miękkich i raczej też nie da się wydedukować takich z mojego CV'
+    \item 'Studia', 'Bootcamp', 'Kontrybuowanie do open-source', 'Stworzenie publicznej libki',
+          'Stworzenie własnego programu/apki', 'Freelancerskie zlecenia', 'Ciekawość', 'Zaradność', 'Dostępność Czasowa', 'Uruchomienie własnego projektu', 'Kursy Online / Certyfikaty'
+  \end{itemize}
+
+  \item Poprawnie formatuje do odczytu typu kolumn
+  \begin{itemize}
+    \item Float (procenty):
+    \begin{itemize}
+      \item Jaki procent pracodawców się do Ciebie odezwało po przesłaniu CV1?
+      \item Jaki procent pracodawców zaprosiło Cię na rozmowę techniczną po przesłaniu CV1?
+    \end{itemize}
+    \item Integer:
+    \begin{itemize}
+      \item Ile rozmów kwalifikacyjnych musiałeś/aś przejść zanim udało Ci się znaleźć pracę?
+      \item Do ilu pracodawców wysłałeś/aś CV (mniej więcej)?
+      \item Jak oceniasz szybkość znalezienia pracy?
+      \item Ocena Języka \#1
+      \item Ocena Języka \#2
+      \item Ocena Języka \#3
+    \end{itemize}
+    \item Boolean:
+    \begin{itemize}
+      \item Czy tworzyłeś coś "własnego"?
+      \item Czy udało Ci się znaleźć pracę jako programista/tka?
+      \item Zgoda na przetwarzanie informacji
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\subsection{Zajęcia 10 (\emph{11.04.21 - 18.05.21})}
+
+\subsubsection{Poprawa lingwistyczna artykułu + artykuł}
+
+Przeczytałem drafty działów napisanych przez zespół, a następnie utworzyłem nowe formalne rozwinięte wersje dla każdego z nich. Historię zmian można prześledzić w  \emph{Tag v0.5.0}, gdyż było to dużo większe przedsięwzięcie niż wstępnie podejrzewałem. Poprzednią wersje można znaleźć też w main\_old\_v1.tex, w razie gdybym uciął jakąś pierwotną myśl, a powrót do niej był potrzebny. Jest to dużo nowego tekstu, który potencjalnie jest bliżej niż dalej ujęcia końcowego. Całość również dodatkowo przejechałem narzędziami do sprawdzania lingwistyki i gramatyki angielskiej (grammarly \footnote{grammarly - https://app.grammarly.com/}, reverso \footnote{reverso - https://www.reverso.net/spell-checker/english-spelling-grammar/}, languagetool \footnote{languagetool - https://languagetool.org/}). Dodałem nową paczkę do dokumentu, która umożliwia zamieszczanie kodu w artykule. Dodałem stylizacje, odnośniki (labele, ref, etc.) i inne latexowe możliwości tam gdzie uznałem to za stosowne.
+
+\subsubsection{Inne}
+
+Standardowo - przy GitHubie dodany został wpis w ChangeLogu oraz otagowane wersje.
+
+\subsection{Zajęcia 11 (\emph{18.05.21 - 25.06.21})}
+
+Praca nad skryptem do automatyzacji pozyskiwania wyników z lintera do .jsona przez pobranie repozytoriów na podstawie danego username'a. (\textit{Done.})
+
+\subsection{Zajęcia 12 (\emph{25.05.21 - 01.06.21})}
+
+\subsection{Zajęcia 13 (\emph{01.06.21 - 08.06.21})}
+
+\subsection{Zajęcia 13 (\emph{08.06.21 - 15.06.21})}
+
+\newpage
+
+\section{Propozycje kierunków rozwoju:}
+Zsumowane propozycje: \\
+ a) ocena jakości kodu repozytorium \\
+ b) role github \\
+ c) date/hour commitów i zależności \\ 
+ d) narzędzie typu 'continious' do badania jakości kodu po commicie \\ 
+ e) narzędzie do sprawdzenia profilu pod katem jakosci kodu/patternów i wydobywania wniosków \\
+ f) liczba contributorsów na githubie (do wydobycia cech miękkich?) \\ 
+
+Może po prostu tool typu profiler na podstawie repozytorium GitHub (ocena jakości kontrybuowanego kodu literami / określenie roli / zsumowanie użytych narzędzi / wydobycie cech na podstawie commit date etc. - tak by ładno zgrabno printowało gościom w HR tabeleczke po wrzuceniu linka).
+
+@Marcel:
+ - curl -i https://api.github.com/users/luzkan/repos
+ - https://docs.github.com/en/graphql/overview/explorer
+ 
+ \\Zapytania z gitHubApi
+ \\https://api.github.com/users?per\_page=300 <- lista userów mozna duzo wiecej
+ \\ /users/{username}/ <- Bio, PublicRepos, Followers
+ \\ https://api.github.com/users/{nick}/repos <- idiki z repo
+ 
+Zapytania ze Stack Exchange API:\\
+/users - Returns all users on a site.\\
+/users/{ids} - Gets the users identified in ids in {ids}.\\
+/users/{ids}/tags - Returns the tags the users identified in {ids} have been active in.\\
+/users/{ids}/badges - Get the badges the users in {ids} have earned\\
+/users/{ids}/favorites - Get the questions that users in {ids} have bookmarked.\\
+
+np. https://api.stackexchange.com/2.2/users/1935918/tags?site=stackoverflow
+
+\\
+Przykład zapytania graphQL o liste userow:
+{
+  search(query: "location:toronto", type: USER, first: 10) {
+    userCount
+    edges {
+      node {
+        ... on User {
+          login
+          name
+          location
+          email
+          company
+        }
+      }
+    }
+  }
+}
+
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+%\input{references}
+\end{document}

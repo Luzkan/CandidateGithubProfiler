@@ -1,0 +1,183 @@
+%%%%%%%%%%%%%%%%%%%% author.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample root file for your "contribution" to a contributed volume
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%% Springer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[graybox]{svmult}
+
+% choose options for [] as required from the list
+% in the Reference Guide
+
+\usepackage{bibentry}
+\usepackage{type1cm}        % activate if the above 3 fonts are
+                            % not available on your system
+%
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+
+\usepackage{newtxtext}       %
+\usepackage{newtxmath}       % selects Times Roman as basic font
+\usepackage{dirtytalk} \newcommand{\mysay}[1]{\say{\textit{#1}}}
+\usepackage{enumerate}
+\usepackage[unicode,colorlinks=true,breaklinks,allcolors=black]{hyperref}
+\usepackage{cleveref}
+\usepackage{ltablex}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{doi}
+\usepackage{enumitem}
+
+% Probably should be swapped for JPEGs!
+\usepackage{pgfplots}
+\usepgfplotslibrary{statistics}
+\usetikzlibrary{pgfplots.statistics} % LATEX and plain TEX
+\usetikzlibrary[pgfplots.statistics] % ConTEXt
+
+%\nobibliography
+\usepackage{fixme}
+
+\nobibliography*
+
+
+% see the list of further useful packages
+% in the Reference Guide
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{document}
+
+\title*{Sprawozdanie z Milestone'u \#1 Grupy M2}
+\author{Marcel Jerzyk, Jakub Litkowski, Jakub Szańca}
+\institute{
+Marcel Jerzyk \at Wroclaw University of Science and Technology, Poland, \email{244979@student.pwr.edu.pl}
+\and Jakub Litkowski \at Wroclaw University of Science and Technology, Poland, \email{242353@student.pwr.edu.pl}
+\and Jakub Szańca \at Wroclaw University of Science and Technology, Poland, \email{242519@student.pwr.edu.pl}
+}
+
+\maketitle
+
+
+
+\newpage
+
+\section{Performance Test}
+
+Uruchomienie programu przy pomocy komendy z \textit{README.md} ,,\textit{mvn exec:java}'' trwało:
+
+
+
+\begin{table}[!h]
+\centering
+        
+\begin{tabular}{|p{0.33\textwidth}|p{0.33\textwidth}|p{0.33\textwidth}|}
+\hline 
+ \begin{center}
+\textbf{Komputer}
+\end{center}
+ & \begin{center}
+\textbf{Próba}
+\end{center}
+ & \begin{center}
+\textbf{Czas}
+\end{center}
+ \\
+\hline 
+ \multirow{$\displaystyle k_{1}$} & $\displaystyle 1$ & 13:52 \\
+\cline{2-3} 
+   & $\displaystyle 2$ & 13:42 \\
+\cline{2-3} 
+   & $\displaystyle 3$ & 13:37 \\
+\hline 
+ \multirow{$\displaystyle k_{2}$} & $\displaystyle 1$ & 24:47 \\
+\cline{2-3} 
+   & $\displaystyle 2$ & 24:51 \\
+\cline{2-3} 
+   & $\displaystyle 3$ & 25:02 \\
+\hline 
+ \multirow{$\displaystyle k_{2}$} & $\displaystyle 1$ & 56:28 \\
+\cline{2-3} 
+   & $\displaystyle 2$ & --- \\
+\cline{2-3} 
+   & $\displaystyle 3$ & --- \\
+ \hline
+\end{tabular}
+        
+\end{table}
+
+Przy czym konfiguracja komputerów $k_{1}, k_{2}, k_{3}$ jest następująca:
+
+\begin{table}[!h]
+\centering
+        
+\begin{tabular}{|p{0.20\textwidth}|p{0.20\textwidth}|p{0.20\textwidth}|p{0.20\textwidth}|p{0.20\textwidth}|}
+\hline 
+ \begin{center}
+\textbf{Komputer}
+\end{center}
+ & \begin{center}
+\textbf{CPU}
+\end{center}
+ & \begin{center}
+\textbf{GPU}
+\end{center}
+ & \begin{center}
+\textbf{OS}
+\end{center}
+ & \begin{center}
+\textbf{RAM}
+\end{center}
+ \\
+\hline 
+ $\displaystyle k_{1}$ & Ryzen 3600 & RTX 2060 2GB & Windows 10 & 32GB @ 1600MHz \\
+\hline 
+ $\displaystyle k_{2}$ & Intel Core i7  6820HQ & Intel HD Graphics 530  & Windows 10 & 16GB @ 1600 MHz \\
+\hline 
+ $\displaystyle k_{3}$ &Intel Core i5-7200U  &Intel HD Graphics 620  & Windows 10 & 12GB @ 2133MHz  \\
+ \hline
+\end{tabular}
+        
+\end{table}
+
+Otrzymane wyniki w przypadku z każdego testu dla komputera $k_{1}$ były reprodukowalne (identyczne przy każdej próbie).
+
+\begin{frame}{}
+\hbox{\hspace{-5.0em} \includegraphics[scale=0.27]{img/results.png}}
+\end{frame}
+
+
+
+\section{Uwagi}
+
+\subsection{\textit{README.md}}
+
+Plik \textit{README.md} ma bardzo lakoniczny opis, który ujmuje tylko samą metodę aplikacji. Brakuje w nim informacji na temat tego, co się dokładnie dzieje po uruchomieniu danej komendy i w jakim celu się ją wykonuje. Brakuje informacji na temat rezultatu otrzymanych danych oraz ich definicji, aby móc zrozumieć istotę programu. Brak informacji o badanych meta klasyfikatorach. Brak zrzutu ekranu z przykładowych wyników.
+
+Technicznie - brakuje w nim informacji na jakiej wersji \emph{Javy} można uruchomić program, bądź na jakiej był tworzony, a więc na jakiej powinien być testowany. Nie ma informacji na temat użytych bibliotek i ich wersji.
+
+\subsection{Kod}
+
+Kod aplikacji jest zrozumiały oraz dobrze podzielony na pakiety.
+
+\subsection{Report}
+
+Prezentujemy zaimportowane dane z wygenerowanego raportu w programie Excel. \\
+
+\begin{frame}{}
+\hbox{\hspace{-5.0em} \includegraphics[scale=0.45]{img/results_loaded.png}}
+\end{frame}
+%\input{references}
+\end{document}

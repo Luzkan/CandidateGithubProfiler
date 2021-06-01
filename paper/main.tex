@@ -1,0 +1,154 @@
+\documentclass[graybox]{svmult}
+
+% |-------------------------------------------------------------------------------------
+% | Packages.
+% |
+
+% |--------------------|
+% | Template Packages
+% |
+
+\usepackage{bibentry}
+\usepackage{type1cm}           % Activate if the above 3 fonts are not available on your system.
+
+\usepackage{makeidx}           % Allows index generation.
+\usepackage{graphicx}          % Standard LaTeX graphics tool when including figure files.
+
+\usepackage{multicol}          % Used for the two-column index.
+\usepackage[bottom]{footmisc}  % Places footnotes at page bottom.
+
+\usepackage{newtxtext}
+\usepackage{newtxmath}         % Selects TimesNewRoman as basic font.
+\usepackage{dirtytalk} \newcommand{\mysay}[1]{\say{\textit{#1}}}
+\usepackage{enumerate}
+\usepackage[unicode,colorlinks=true,breaklinks,allcolors=black]{hyperref}
+\usepackage{cleveref}
+\usepackage{ltablex}
+\usepackage{booktabs}
+\usepackage{hyphenat}
+\usepackage{makecell}
+\usepackage{doi}
+\usepackage{enumitem}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{statistics}
+\usetikzlibrary{pgfplots.statistics}
+
+\usepackage{fixme}
+\usepackage{fancyhdr}
+
+% |--------------------|
+% | Personal Packages
+% |
+
+% Pozwala na używanie kodu w papierze. // Marcel Jerzyk
+\usepackage{listings}
+
+% |-------------------------------------------------------------------------------------
+% | Settings.
+% |
+
+\nobibliography*
+\makeindex  % Used for the subject index, please use the style svind.ist with your makeindex program.
+\graphicspath{{img/}}  % Default graphics path. // Marcel Jerzyk
+
+% |-------------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancypagestyle{firstpage}{
+  % Clears the default for header and footer
+  \fancyhf{}
+  \lhead{\footnotesize Preprint of a chapter: Marcel Jerzyk, Jakub Litkowski, Jakub Szańca and Lech Madeyski, Developments in Information and Knowledge Management for Business Applications, Studies in Systems, Decision and Control, chapter ”Title” Springer}
+}
+\setlength{\headheight}{110pt}
+
+% |--------------------------------------------------------------------------------------
+% | Beginning of the Document.
+% | Use the package "url.sty" to avoid problems with special characters used in your e-mail or web address
+% |
+
+\begin{document}
+
+\title*{Evaluating the potential of a candidate for a job offer based on his GitHub profile}
+\titlerunning{Evaluating the potential of a candidate for a job offer based on his GitHub profile.}
+\author{Marcel Jerzyk, Jakub Litkowski, Jakub Szańca and Lech Madeyski}
+\authorrunning{M. Jerzyk, J. Litkowski, J. Szańca and L. Madeyski}
+\institute{Marcel Jerzyk, Jakub Litkowski, Jakub Szańca, Lech Madeyski \at Wroclaw University of Science and Technology, Poland}
+
+\maketitle
+
+\thispagestyle{firstpage}
+
+% |-------------------------------------------------------------------------------------
+% | Abstract.
+% |
+
+\input{sections/abstract.tex}
+
+% |-------------------------------------------------------------------------------------
+% | Keywords
+% |
+
+% \keywords{github \and machine learning \and predictive modelling \and systematic review \and profiling \and evaluation \and evaluating \and potential \and candidate \and resume \and cv \and job \and market \and recruiters \and screening }
+
+% |-------------------------------------------------------------------------------------
+% | Introduction.
+% |
+
+\input{sections/introduction.tex}
+
+% |-------------------------------------------------------------------------------------
+% | Systematic Review.
+% |
+% | - Research Questions
+% | - Currently Available Resources on the Subject
+% | - Results Selection Process
+
+\input{sections/systematic_review.tex}
+
+% |-------------------------------------------------------------------------------------
+% | Literature Review.
+% |
+
+\input{sections/literature_review.tex}
+
+% |-------------------------------------------------------------------------------------
+% | Methodology.
+% |
+% | - Data Collection
+% | - Data Preprocessing
+% | - Creating Machine Learning Model
+
+\input{sections/methodology.tex}
+
+% |-------------------------------------------------------------------------------------
+% | Results.
+% |
+
+\input{sections/results.tex}
+
+% |-------------------------------------------------------------------------------------
+% | Discussion.
+% |
+
+\input{sections/discussion.tex}
+
+% |-------------------------------------------------------------------------------------
+% | Conclusions.
+% |
+
+\input{sections/conclusions.tex}
+
+% |-------------------------------------------------------------------------------------
+% | Acknowledgement & Bibliography.
+% |
+
+\begin{acknowledgement}
+\item {This research was ...}
+\end{acknowledgement}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
