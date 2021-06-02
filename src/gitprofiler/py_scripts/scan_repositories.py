@@ -36,7 +36,7 @@ def subprocess_run(args_list: list[str], username: str, cwd_path: Path = None, s
         log.error("Error: Wrong directory path.")
 
 
-async def fetch_repositories(username: str, repositories: list[str]) -> None:
+async def fetch_repositories(username: str) -> None:
     """ Fetches given GitHub user repositories into ./data/repositories/<username> directory.
 
     Args:
@@ -45,8 +45,8 @@ async def fetch_repositories(username: str, repositories: list[str]) -> None:
     """
     g = Github()
 
-    for repository in repositories:
-        repo = g.get_repo(f"{username}/{repository}")
+    for repository in g.get_user(username).get_repos():
+        repo = g.get_repo(f"{username}/{repository.name}")
 
         log.info(f"Cloning {repository}.")
         subprocess_run(["git", "clone", repo.clone_url], username)
@@ -142,8 +142,8 @@ async def clean_data_directory(parsed_filepaths: List[Path]) -> None:
                 log.warning(f"Couldn't remove: {file}")
 
 
-async def main(username: str, repositories: list) -> None:
-    task_fetch = asyncio.create_task(fetch_repositories(username, repositories))
+async def main(username: str) -> None:
+    task_fetch = asyncio.create_task(fetch_repositories(username))
     await wait_for_repos(task_fetch, "fetched")
     linter_output_filepaths = asyncio.create_task(lint_repositories(username))
     await wait_for_repos(linter_output_filepaths, "linted")
@@ -176,7 +176,7 @@ def init():
     arguments = arguments_parser()
 
     # Run
-    asyncio.run(main(arguments.username, arguments.repositories))
+    asyncio.run(main(arguments.username))
 
 
 if __name__ == "__main__":
