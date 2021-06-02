@@ -11,7 +11,7 @@ import shutil
 
 NODEJS_PATH = r'C:\Program Files\nodejs\npx.cmd'
 REPOSITORIES_DIR = "./data/repositories"
-DELAY = 3
+DELAY = 4
 
 
 def subprocess_run(args_list: list[str], username: str, cwd_path: Path = None, stdout_path: Path = None) -> None:
@@ -68,7 +68,7 @@ async def wait_for_repos(task: asyncio.Task, msg: str):
     """
     last_dir_size = get_repositories_directory_size()
     await task
-    await asyncio.sleep(DELAY/2)
+    await asyncio.sleep(DELAY)
     curr_dir_size = get_repositories_directory_size()
 
     while last_dir_size != curr_dir_size:
@@ -79,7 +79,7 @@ async def wait_for_repos(task: asyncio.Task, msg: str):
     log.info(f"All Repositories {msg} {last_dir_size} / {curr_dir_size}")
 
 
-async def lint_repositories(username: str) -> List[Path]:
+async def lint_repositories(username: str, fix: bool) -> List[Path]:
     user_repositories_path = Path(f'{REPOSITORIES_DIR}/{username}')
     local_repo_paths = [repo for repo in user_repositories_path.iterdir() if repo.is_dir()]
     output_files = []
@@ -89,6 +89,8 @@ async def lint_repositories(username: str) -> List[Path]:
         node_exe_path = Path(NODEJS_PATH)
         cmd_lint = f"{node_exe_path} mega-linter-runner"
         cmd_flavour = "--flavor all"
+        if fix:
+            cmd_flavour += " --fix"
         cmd_e = "-e 'SHOW_ELAPSED_TIME=true'"
         output_file = Path(f'{local_repo_path}/{username}-{local_repo_path.name}.txt')
         cmd = f"{cmd_lint} {cmd_flavour} {cmd_e}".split(" ")
@@ -145,7 +147,7 @@ async def clean_data_directory(parsed_filepaths: List[Path]) -> None:
 async def main(username: str) -> None:
     task_fetch = asyncio.create_task(fetch_repositories(username))
     await wait_for_repos(task_fetch, "fetched")
-    linter_output_filepaths = asyncio.create_task(lint_repositories(username))
+    linter_output_filepaths = asyncio.create_task(lint_repositories(username, True))
     await wait_for_repos(linter_output_filepaths, "linted")
     parsed_output_filepaths = asyncio.create_task(parse_linted_output_tables(linter_output_filepaths.result()))
     await parsed_output_filepaths

@@ -113,7 +113,9 @@ class JSONSMerger():
         Args:
             output_filename (str): the name of output json file
         """
-        with open(f'{self.directory}/{output_filename}.json', 'w') as json_file:
+        save_dir = './data/scanned_user'
+
+        with open(f'{save_dir}/{output_filename}.json', 'w') as json_file:
             json.dump(self.json, json_file, indent=indent, sort_keys=True)
         print(f"Succesfully parsed and saved as {json_file.name}.")
 
