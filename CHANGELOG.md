@@ -11,6 +11,132 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.7.0]] - 2021-06-02 _(Marcel Jerzyk)_
+
+### Added
+
+- New script: [`.../merge_jsons.py`](./src/git_profiler/py_scripts/merge_jsons.py) was added to the project.
+
+  - This script takes on input:
+    - `str:` **`github_username`**,
+  - Output is stored _(by default)_ in:
+    - [`.data/scanned_user/`**`<username>`**`.json`](.data/scanned_user/)
+  - The purpose of this script is to merge all of the `.json` files that are generated via [`.../scan_repositories.py`](./src/git_profiler/py_scripts/scan_repositories.py) script into one `.json` file that contains merged information from all of them in a 'gather' mode. This means that when in some other file information fetched by given combo of **language-linter** is present, then the results are summed up. This allows for even easier usage of the Mega Linter information via ML model because the processing work is already done.
+  - The script also takes care of different `.json`-s as some of them are linter-related but others contain aggregated results.
+  - Structure of the file is as follows:
+
+    ```python
+    {
+      "<lang>": {
+        "<linter>": {
+          "errors": int,
+          "files": int,
+          "fixed": int
+        },
+        "total": {
+          "clones": int,
+          "duplicate_lines_num": int,
+          "duplicate_tokens_num": int,
+          "files": int,
+          "lines": int,
+          "tokens": int
+        }
+      }
+    }
+    ```
+
+    - There's special case for `<lang>` which is **`"Total:"`** - it contains all aggregated results.
+    - The `"total"` subkey doesn't always have to exist, for examples it does not in `<lang>`: `cspell`, `xml`, `yaml`.
+
+  - Example final output:
+    ```json
+    {
+      "Total:": {
+        "total": {
+          "clones": 163,
+          "duplicate_lines_num": 6061,
+          "duplicate_tokens_num": 52202,
+          "files": 428,
+          "lines": 44590,
+          "tokens": 473152
+        }
+      },
+      "java": {
+        "checkstyle": {
+          "errors": 108,
+          "files": 109,
+          "fixed": 0
+        },
+        "total": {
+          "clones": 56,
+          "duplicate_lines_num": 948,
+          "duplicate_tokens_num": 10656,
+          "files": 106,
+          "lines": 11093,
+          "tokens": 106282
+        }
+      },
+      "python": {
+        "black": {
+          "errors": 59,
+          "files": 62,
+          "fixed": 0
+        },
+        "flake8": {
+          "errors": 2438,
+          "files": 62,
+          "fixed": 0
+        },
+        "isort": {
+          "errors": 37,
+          "files": 62,
+          "fixed": 0
+        },
+        "pylint": {
+          "errors": 2,
+          "files": 62,
+          "fixed": 0
+        },
+        "total": {
+          "clones": 40,
+          "duplicate_lines_num": 798,
+          "duplicate_tokens_num": 8403,
+          "files": 58,
+          "lines": 6111,
+          "tokens": 57864
+        }
+      },
+      "spell": {
+        "cspell": {
+          "errors": 9555,
+          "files": 640,
+          "fixed": 0
+        },
+        "misspell": {
+          "errors": 18,
+          "files": 640,
+          "fixed": 0
+        }
+      }
+    }
+    ```
+
+- Added `paper` directory.
+  - It contains the _LaTeX_ paper which got complete overhaul.
+  - Redundant text and formatting was removed.
+  - Comments that were pointless were removed and existing comments were standardized
+  - Moved sections of paper to separate files.
+  - Adjusted heading/title sections.
+  - Resolved few errors and warnings.
+  - Created directory `/img/` for images.
+  - Created `/misc/` folder for all the stuff that is not tightly related to the paper or structure.
+
+### Changed
+
+- Script [`.../scan_repositories.py`](./src/git_profiler/py_scripts/scan_repositories.py) now fetches repositories of given user automatically _(no need to provide separate repositories list in order to fetch them)_
+  - New input:
+    - `str:` **`github_username`**,
+
 ## [[0.6.0]] - 2021-05-25 _(Marcel Jerzyk)_
 
 ### Added
@@ -265,15 +391,16 @@ This changelog entry will be filled in a few days.
 
 **Project was initialized.**
 
-[todo]: https://github.com/pwr-pbr21/M1/compare/v0.6.0...HEAD
-[0.6.0]: https://github.com/pwr-pbr21/M1/compare/v0.5.0...v0.6.0
-[0.5.0]: https://github.com/pwr-pbr21/M1/compare/v0.4.0...v0.5.0
-[0.4.0]: https://github.com/pwr-pbr21/M1/compare/v0.3.1...v0.4.0
-[0.3.1]: https://github.com/pwr-pbr21/M1/compare/v0.3.0...v0.3.1
-[0.3.0]: https://github.com/pwr-pbr21/M1/compare/v0.2.3...v0.3.0
-[0.2.3]: https://github.com/pwr-pbr21/M1/compare/v0.2.2...v0.2.3
-[0.2.2]: https://github.com/pwr-pbr21/M1/compare/v0.2.1...v0.2.2
-[0.2.1]: https://github.com/pwr-pbr21/M1/compare/v0.2.0...v0.2.1
-[0.2.0]: https://github.com/pwr-pbr21/M1/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/pwr-pbr21/M1/compare/v0.0.1...v0.1.0
-[0.0.1]: https://github.com/pwr-pbr21/M1/releases/tag/v0.0.1
+[todo]: https://github.com/pwr-pbr21/M1/compare/0.7.0...HEAD
+[0.7.0]: https://github.com/pwr-pbr21/M1/compare/0.6.0...0.7.0
+[0.6.0]: https://github.com/pwr-pbr21/M1/compare/0.5.0...0.6.0
+[0.5.0]: https://github.com/pwr-pbr21/M1/compare/0.4.0...0.5.0
+[0.4.0]: https://github.com/pwr-pbr21/M1/compare/0.3.1...0.4.0
+[0.3.1]: https://github.com/pwr-pbr21/M1/compare/0.3.0...0.3.1
+[0.3.0]: https://github.com/pwr-pbr21/M1/compare/0.2.3...0.3.0
+[0.2.3]: https://github.com/pwr-pbr21/M1/compare/0.2.2...0.2.3
+[0.2.2]: https://github.com/pwr-pbr21/M1/compare/0.2.1...0.2.2
+[0.2.1]: https://github.com/pwr-pbr21/M1/compare/0.2.0...0.2.1
+[0.2.0]: https://github.com/pwr-pbr21/M1/compare/0.1.0...0.2.0
+[0.1.0]: https://github.com/pwr-pbr21/M1/compare/0.0.1...0.1.0
+[0.0.1]: https://github.com/pwr-pbr21/M1/releases/tag/0.0.1
