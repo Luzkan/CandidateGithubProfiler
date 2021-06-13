@@ -1,5 +1,30 @@
-
 \subsection{Creating a Machine Learning Model}
-Essentially, we decided to chose mlr \footnote{mlr Website: https://mlr.mlr-org.com/} package as a tool which is supposed to help us in creating a machine learning model and which is one of the best machine learning packages in R. \footnote{R Website: https://www.r-project.org/}We determined that we wanted to perform a binary classification, hence we performed the following processes
+\label{sec:creating-machine-learning-model}
 
-Firstly, we imported data from csv file with appropriate encoding. We saved selected columns from imported data into a data frame as well. Then, as a first approach we split the data into two datasets in a given ratio: training set - 75\% of data, test set – 25\% of data. Finally, the datasets were prepared and ready to use. The first step toward creating a machine learning model was to define a learning task for a classification. We specified task ID, data used in process and a target column, which had to be a factor, with a \emph{makeClassifTask()} method. Subsequently, we constructed a learner by calling \emph{makeLearner()} method. We needed to choose a classification algorithm. In the beginning, \emph{randomForest} was selected. Afterwards, we trained the model with a \emph{train()} method. We were supposed to specify train subset, use defined task and learner. In the end, we predicted the target values for test dataset. We had to specify using machine learning model and task with a \emph{predict()} method as well. Moreover, by calling \emph{makeResampleDesc()} method we used a cross-validation in order to estimate precisely how accurately a predictive model will perform in practice.
+We decided to chose \code{mlr} \footnote{mlr Website: https://mlr.mlr-org.com/} package as a tool which assists in creation of machine learning models and which is by far one of the most convenient machine learning packages in R. \footnote{R Website: https://www.r-project.org/}. We have performed the following processes:
+
+As our first step, we began by importing the data from the \code{csv} file \footnote{The \code{csv} file is available at the ,,\code{./data/cleaned_data.csv}'' path in this project repository} with appropriate  \code{UTF-8} encoding into a data frame.
+Then, in our first approach to the task, we have split the data into two separate data sets, one of which is the training set which consist of 75\% of our data and the other - testing set with the remaining rest. 
+
+Now, after the data set is ready, we can proceed towards the creation of the machine learning model. First, we have defined a learning task for classification. We have specified \code{Task ID}, \code{Process Data} and \code{Target Column} (target column holds the information whether a given user is interesting in terms of his potential as an employee - or in other words - ,,attention worthy''). 
+
+%%% OLD \start %%%
+Subsequently, we constructed a learner by calling \emph{makeLearner()} method. We needed to choose a classification algorithm. In the beginning, \emph{randomForest} was selected. Afterwards, we trained the model with a \emph{train()} method. We were supposed to specify train subset, use defined task and learner. In the end, we predicted the target values for test dataset. We had to specify using machine learning model and task with a \emph{predict()} method as well. Moreover, by calling \emph{makeResampleDesc()} method we determined a resampling strategy used in our process. We selected a cross-validation as our strategy in order to estimate precisely how accurately a predictive model will perform in practice. Initially, we set 10-fold cross-validation type which means we used cross-validation with 10 iterations.
+%%% OLD \end %%%
+
+
+This was the time to begin the most rewarding part of the study. Having collected the data from all previously mentioned sources (which is the survey among programmers and IT specialists \textit{[ref: \ref{sec:questionnaire}, \ref{sec:data-prep-questionnaire}]}, the mega linter scans of repositories of the surveyed developers \textit{[ref: \ref{sec:github-repo-parsing}]} and the various information available through the GitHub API \textit{[ref: \ref{sec:github-info-parsing})]} into one single \code{csv} file, we began the work. 
+
+First, we filtered out those users which did not provide their GitHub username and those who did not classify any ,,main'' language (and two more users whose repositories could not get linted because of the limited available time to perform such operations or one more user who had no public repositories on his GitHub profile). The remaining pool of <ILE ZOSTAŁO KONIEC KOŃCÓW USERÓW?> was the base from which we extrapolated the features that were used in the machine learning model:
+
+\begin{itemize}
+  \item \code{ExperienceDuration} - The time that a person is being present on the labor market.
+  \item \code{WorkFindTime} - The time that elapsed until the first job by a given person was found.
+  \item \code{AvgCommitTime} - The average time that between commits. Missing values were filled by inserting the averages.
+  \item \code{ExpType} - Weighted average of the type of experience the person has.
+  \item \code{SoftSkills} - Weighted average of the soft skills that a person had listed on their CV, in which the most important factor of $2$ was given to the \emph{communicativeness}, while the rest is set as $1$. 
+  \item \code{DupLinesPercent} - The percent of lines that were detected as duplicated throughout a given repository summed over all repositories.
+  \item \code{LinesPerFile} - The ratio that is calculated via dividing of the number of lines by the number of files.
+\end{itemize}
+
+The data was labeled on the basis of current analysis of available information about the users. Then, we proceed to analyse the correlations between variables in that data.

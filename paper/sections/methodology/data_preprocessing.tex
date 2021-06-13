@@ -1,14 +1,30 @@
 \subsection{Data Preprocessing}
+\label{sec:data-preprocessing}
 
 \subsubsection{Questionnaire}
+\label{sec:data-prep-questionnaire}
 
-In total, we received 67 completed questionnaires and 45 of them were provided with GitHub profile. The data file was further cleaned and reformatted with the use of Python \footnote{Python Website: https://www.python.org/} script. Both the original and formatted CSV files can be found in the project source under the name \emph{,,questionnaire.csv''} and \emph{,,cleaned\_data.csv''} as well as the Python script used for data formatting can be found in \emph{,,py\_scripts''} directory under the name ,,questionnaire\_adjuster.py''. To run the script, one must have Python 3.9 or newer installed on the machine along with "Numpy" \footnote{Numpy PyPI Page - https://pypi.org/project/numpy/}, "Pandas" \footnote{Pandas PyPI Page - https://pypi.org/project/pandas/} and "Requests" \footnote{Requests PyPI Page - https://pypi.org/project/requests/} packages.
+In total, we received 67 completed questionnaires and 45 of them were provided with GitHub profile. The data file was further cleaned and reformatted with the use of Python \footnote{Python Website: \url{https://www.python.org/}} script. Both the original and formatted \code{csv} files can be found in the project source under the name ,,\code{questionnaire.csv}'' and ,,\code{cleaned\_data.csv}'' as well as the Python script used for data formatting which can be found in ,,\code{py\_scripts}'' directory under the name ,,\code{questionnaire\_adjuster.py}''. To run the script, one must have Python 3.9 or newer installed on the machine along with ,,Numpy'' \footnote{Numpy PyPI Page - \url{https://pypi.org/project/numpy/}}, ,,Pandas'' \footnote{Pandas PyPI Page - \url{https://pypi.org/project/pandas/}} and ,,Requests'' \footnote{Requests PyPI Page - \url{https://pypi.org/project/requests/}} packages.
+
+Delving into the details, starting with the most important - 7 answers were manually modified to standardize the values into one datatype (\code{int}), as they were given in the questionnaire as strings, so that people are not constraint to the few selected numerical values and - unfortunately - there was no other way to have an input field that allows only for \code{UnlimitedNatural} numbers. Majority of these answers were given as ranges (ex.: $10 - 20$, \emph{a dozen}, $30-40$) - these were modified to be the average of the given range. The "self-doubtable" and the ,,not exactly sure'' answers like $60?$, $4/5$ and $20+$, were changed to the lowest value in the suggested range. 
+
+Besides that - all available checkbox answers (\emph{Soft Skills} \& \emph{Pre-work Experience}) were transformed so that each of them has their own respective column with \code{Boolean} answers whether it was checked or not.
+
+Other changes are technical and linguistic so that the data set could be reused with comprehension without the knowledge of Polish language:
+
+\begin{itemize}
+  \item Unicode Characters (like \emph{Emojis}) were removed from the column names, and the column names themselves are now English words
+  \item Every single column had their data properly adjusted so they could be interpreted with their suitable data type
+  \item Similar columns from different sections of the questionnaire which were the result of answers to similar but rephrased questions merged
+  \item Answers which were given as strings like ,,\code{3,5 year}'' were transformed into \code{integers} in units of months
+\end{itemize}
 
 \subsubsection{Repositories}
+\label{sec:data-prep-repositories}
 
-One of the most difficult tasks is to properly obtain information from the repositories of a given user. For research purposes, we decided to track them for potential errors and warnings which can be identified via linters. Linter is a static code analysis tool used to flag any bugs, errors, stylistic warnings, suspicious constructs, redundant code and more depending on the language and/or tool. Of course, the user could have repositories with code written in any language that exists, and that is a real problem, which we mitigated by a linter-aggregating tool - \emph{Mega Linter} \footnote{MegaLinter GitHub Page - https://github.com/nvuillam/mega-linter}. Mega Linter is an open-source tool that simply detects the languages used in a given project and then uses all available linters to scan it through. After the scan, it prints out a summary table with the number of Files that were detected and scanned with a given linter, the number of fixed files automatically during the run time, and the number of errors that couldn't be automatically fixed. There's also a second table that's printed somewhere in the first half of the output log that has information about detected duplicate lines and tokens in the project. To obtain that data we redirected the output stream into a file and then parsed it with Python script \emph{,,scrape.py''} which can be found in \emph{,,py\_scripts''} folder.
+One of the most difficult tasks is to properly obtain information from the repositories of a given user. For research purposes, we decided to track them for potential errors and warnings which can be identified via linters. Linter is a static code analysis tool used to flag any bugs, errors, stylistic warnings, suspicious constructs, redundant code, and more depending on the language and/or tool. Of course, the user could have repositories with code written in any language that exists, and that is a real problem, which we mitigated by a linter-aggregating tool - \emph{Mega Linter} \footnote{Mega Linter GitHub Page - \url{https://github.com/nvuillam/mega-linter}}. Mega Linter is an open-source tool that simply detects the languages used in a given project and then uses all available linters to scan it through. After the scan, it prints out a summary table with the number of Files that were detected and scanned with a given linter, the number of fixed files automatically during the run time, and the number of errors that couldn't be automatically fixed. There's also a second table that's printed somewhere in the first half of the output log that has information about detected duplicate lines and tokens in the project. To obtain that data we redirected the output stream into a file and then parsed it with Python script ,,\code{scrape.py}'' which can be found in \emph{,,py\_scripts''} folder.
 
-The usage of the Mega Linter and scrape script is more widely described in the main \emph{README.md} file although, in short, one must have Docker \footnote{Docker Website - https://www.docker.com/} and Python installed. Then, simply navigate to the repository which you would like to lint and run a command \ref{lst:shell-command-run-linter} which will generate an \emph{output.txt} file.
+The usage of the Mega Linter and scrape scripts is more widely described in the main \code{README.md} file although, in short, one must have Docker \footnote{Docker Website - https://www.docker.com/} and Python installed. Then, simply navigate to the repository which you would like to lint and run a command \textit{[ref: \ref{lst:shell-command-run-linter}]} which will generate an \code{output.txt} file.
 
 \begin{lstlisting}[language=Bash, label={lst:shell-command-run-linter}]
 npx mega-linter-runner --flavor all
@@ -17,7 +33,7 @@ npx mega-linter-runner --flavor all
                  > output.txt
 \end{lstlisting}
 
-Copy the file and paste it in the \emph{scrape.py} directory. Finally use \ref{lst:shell-command-scrape-py} command which will generate an \emph{output.json} with a list of dictionaries structured as in \ref{lst:scrape-py-output-example}.
+Copy the file and paste it in the \emph{scrape.py} directory. Finally use shell scrape command \textit{[ref: \ref{lst:shell-command-scrape-py}]} command which will generate an \code{output.json} with a list of dictionaries structured as in output example given below \textit{[ref: \ref{lst:scrape-py-output-example}]}.
 
 \begin{lstlisting}[language=Bash, label={lst:shell-command-scrape-py}]
 python scrape.py -f output.txt
@@ -25,8 +41,8 @@ python scrape.py -f output.txt
 
 \begin{lstlisting}[language=Python, label={lst:scrape-py-output-example}]
 {
- "language": str,
- "linter": str,
+ "language": str,     #detected language
+ "linter": str,       #checked via linter (name)
  "files": int or str, #detected files in given language
  "fixed": int,        #fixed errors automatically
  "errors": int        #errors that could not be fixed
@@ -35,7 +51,7 @@ python scrape.py -f output.txt
 or
 
 {
- "language": str,
+ "language": str,     #detected language
  "files": int,        #in a given language
  "lines": int,        #in a given language
  "tokens": int,       #("chars") in a given language

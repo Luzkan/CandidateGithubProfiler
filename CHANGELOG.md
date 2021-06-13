@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.8.0]] - 2021-06-13 _(Marcel Jerzyk)_
+
+### Changes
+
+Further work on the paper:
+
+- Creating _Machine Learning Model_ section created
+- First results are available in _Results_ section
+- Whole paper was re-checked via grammar checker and adjusted accordingly
+- Whole paper got "lifting" via improved formatting
+- Sections got labels so they can be cross-referenced for improved "user reading experience"
+- Improved language and added contents in Data Processing section
+  - Among others, details regarding manual pre-processing of questionnaire.
+
+### Added
+
+- _Data_ section in [**`README.md`**](./README.md)
+
 ## [[0.7.2]] - 2021-06-13 _(Marcel Jerzyk)_
 
 ### Added

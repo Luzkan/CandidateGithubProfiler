@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  Git Profiler <b>v0.7.2</b> <i>(PBR21M1)</i>
+  Git Profiler <b>v0.8.0</b> <i>(PBR21M1)</i>
   <br>
 </h1>
 
@@ -9,7 +9,7 @@
 <p align="center">
   <a href="#features">Features</a> •
   <a href="#usage">Usage</a> •
-  <a href="#planned">Planned</a> •
+  <a href="#data">Data</a> •
   <a href="#planned">Paper</a>
 </p>
 
@@ -223,9 +223,9 @@ or
 
 </details>
 
-## **Planned**
+## **Data**
 
-TBD.
+All available data can be found in the [`./data`](./data/) directory. Most importantly: [`cleaned_data.csv`](./data/cleaned_data.csv) contains all the information that were used in the machine learning model. It is preformatted and adjusted - ready to use out of the box.
 
 ## **Paper**
 
