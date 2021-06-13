@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.8.1]] - 2021-06-13 _(Marcel Jerzyk)_
+
+### Added
+
+- In `README.md`: information about the paper directory.
+
+### Changed
+
+- Moved `/literature/` under the `./data` directory.
+
+### Fixed
+
+- Spelling in `CHANGELOG.md`
+
 ## [[0.8.0]] - 2021-06-13 _(Marcel Jerzyk)_
 
 ### Changes
@@ -29,13 +43,13 @@ Further work on the paper:
 
 ### Added
 
-Used literature as `.pdf`s in the [./literature/](./literature) directory
+Used literature as `.pdf`s in the [./data/literature/](./data/literature) directory
 
 ## [[0.7.1]] - 2021-06-04 _(Marcel Jerzyk)_
 
 ### Changed
 
-- Literature Review was retranslated to formal ,,paper'' english.
+- Literature Review was retranslated to formal ,,paper'' English.
 
 ## [[0.7.0]] - 2021-06-02 _(Marcel Jerzyk)_
 
@@ -171,7 +185,7 @@ Used literature as `.pdf`s in the [./literature/](./literature) directory
   - This script takes on input:
     - `str:` **`github username`**,
     - `list[str]`: **`github repositories names`**
-  - It automates the repositories cloning, megalinter linting and megalinterscraper scraping routine. It does exactly as what the intuition might suggest:
+  - It automates the repositories cloning, Mega Linter linting and Mega Linter Scraper scraping routine. It does exactly as what the intuition might suggest:
     - first starts `git clone` on every single repository name given on input
     - then it uses _MegaLinter_ to parse the repositories contents and generate na output file
     - and at the end - uses the previously made [`.../scraper.py`](./src/git_profiler/py_scripts/scraper.py) to parse the file contents into a machine-readable `.json` format
@@ -189,7 +203,7 @@ Used literature as `.pdf`s in the [./literature/](./literature) directory
   - Resources to Be Searched
   - Results Selection Process
   - Data Collection
-  - Data Preprocessing
+  - Data Pre-processing
 
 ### Changed
 
@@ -226,7 +240,7 @@ This changelog entry will be filled in a few days.
 
 - New Script: [`scrape.py`](.src/gitprofiler/py_scripts/scrape.py)
   - The script takes on input output file which can be generated via [**Mega Linter**](https://github.com/nvuillam/mega-linter) by redirecting the standard output stream into a text file _(`> output.txt`)_.
-  - Script parses the log data and scrapes **duplicates** table informations into `dictionary`:
+  - Script parses the log data and scrapes **duplicates** table information into `dictionary`:
     ```python
     {
         "language": str,
@@ -240,7 +254,7 @@ This changelog entry will be filled in a few days.
         "duplicate_tokens_percent": float
     },
     ```
-  - Script parses the log data and scrapes **summary** table informations into `dictionary`:
+  - Script parses the log data and scrapes **summary** table information into `dictionary`:
     ```python
     {
         "language": str,
@@ -250,13 +264,13 @@ This changelog entry will be filled in a few days.
         "errors": int         # amount of errors that could not be fixed by linter
     },
     ```
-  - All available informations are properly parsed and saved as `output.json` file that contains list of the previously mentioned dictionaries.
+  - All available information are properly parsed and saved as `output.json` file that contains list of the previously mentioned dictionaries.
 - New File: [`CHANGELOG.md`](.)
   - This file serves as a diary of the progress of the programming side of this project.
 
 ### Changed
 
-- Added new [`README.md`](./README.md) entry about the new script file. It contains the informations about the requirements needed in order to run the script as well as the run process itself with the expected output data.
+- Added new [`README.md`](./README.md) entry about the new script file. It contains the information about the requirements needed in order to run the script as well as the run process itself with the expected output data.
 
 ## [[0.2.3]] - 2021-05-04 _(Marcel Jerzyk)_
 
@@ -278,12 +292,12 @@ This changelog entry will be filled in a few days.
 ### Added
 
 - **`README.md`**:
-  - Added informations & created `.gif` files for group **M2** that should work as exhaustive instruction on how to use the [**R Studio**](https://www.rstudio.com/).
+  - Added information & created `.gif` files for group **M2** that should work as exhaustive instruction on how to use the [**R Studio**](https://www.rstudio.com/).
     - **Tutorial**: How to generate own GitHub Token.
     - **Instruction**: Installing R Studio.
     - Navigating in R Studio.
   - Added tutorial & created `.gif` files that contain exhaustive information on how to use [**Mega Linter**](https://github.com/nvuillam/mega-linter) through **Github Actions**.
-    - Informations about the _CI_ file and what contents it should have _(including snippet for easy copy-paste)_.
+    - Information about the _CI_ file and what contents it should have _(including snippet for easy copy-paste)_.
     - Step by step actions in order to trigger the CI/CD Pipeline in [GitHub.com](https://github.com/) on own repository with **Mega Linter** job.
 
 ## [[0.2.0]] - 2021-04-20 _(Jakub Litkowski)_
@@ -291,7 +305,7 @@ This changelog entry will be filled in a few days.
 ### Added
 
 - GraphQL Query Created
-- Scraped informations from Query into variables:
+- Scraped information from Query into variables:
 
   - Bio:
 
@@ -359,7 +373,7 @@ This changelog entry will be filled in a few days.
 
 ### Added
 
-- Created [**`README.md`**](./README.md) for the project that contains various useful informations, requirements and instructions in order ot run the program.
+- Created [**`README.md`**](./README.md) for the project that contains various useful information, requirements and instructions in order ot run the program.
 - Created initial file structure.
 - **`github_graphql.r`** file:
 
@@ -417,7 +431,9 @@ This changelog entry will be filled in a few days.
 
 **Project was initialized.**
 
-[todo]: https://github.com/pwr-pbr21/M1/compare/0.7.2...HEAD
+[todo]: https://github.com/pwr-pbr21/M1/compare/0.8.1...HEAD
+[0.8.1]: https://github.com/pwr-pbr21/M1/compare/0.8.0...0.8.1
+[0.8.0]: https://github.com/pwr-pbr21/M1/compare/0.7.2...0.8.0
 [0.7.2]: https://github.com/pwr-pbr21/M1/compare/0.7.1...0.7.2
 [0.7.1]: https://github.com/pwr-pbr21/M1/compare/0.7.0...0.7.1
 [0.7.0]: https://github.com/pwr-pbr21/M1/compare/0.6.0...0.7.0
