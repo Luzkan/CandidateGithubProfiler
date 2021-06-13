@@ -8,3 +8,6 @@ __pycache__
 # Genreated Files via Scripts
 output.txt
 output.json
+
+# Work
+data/repositories/*
