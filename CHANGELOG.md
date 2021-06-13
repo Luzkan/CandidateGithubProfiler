@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.8.1]] - 2021-06-13 _(Marcel Jerzyk)_
+
+### Added
+
+- In `README.md`: information about the paper directory.
+
+### Changed
+
+- Moved `/literature/` under the `./data` directory.
+
 ## [[0.8.0]] - 2021-06-13 _(Marcel Jerzyk)_
 
 ### Changes
@@ -29,7 +39,7 @@ Further work on the paper:
 
 ### Added
 
-Used literature as `.pdf`s in the [./literature/](./literature) directory
+Used literature as `.pdf`s in the [./data/literature/](./data/literature) directory
 
 ## [[0.7.1]] - 2021-06-04 _(Marcel Jerzyk)_
 
