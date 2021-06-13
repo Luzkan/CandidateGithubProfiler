@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.8.1a]] - 2021-06-13 _(Marcel Jerzyk)_
+
+### Changed
+
+- Added `pandas`, `numpy` and `gitpython` as required packages in `requirements.txt`.
+
 ## [[0.8.1]] - 2021-06-13 _(Marcel Jerzyk)_
 
 ### Added
@@ -431,7 +437,8 @@ This changelog entry will be filled in a few days.
 
 **Project was initialized.**
 
-[todo]: https://github.com/pwr-pbr21/M1/compare/0.8.1...HEAD
+[todo]: https://github.com/pwr-pbr21/M1/compare/0.8.1a...HEAD
+[0.8.1a]: https://github.com/pwr-pbr21/M1/compare/0.8.1...0.8.1a
 [0.8.1]: https://github.com/pwr-pbr21/M1/compare/0.8.0...0.8.1
 [0.8.0]: https://github.com/pwr-pbr21/M1/compare/0.7.2...0.8.0
 [0.7.2]: https://github.com/pwr-pbr21/M1/compare/0.7.1...0.7.2
