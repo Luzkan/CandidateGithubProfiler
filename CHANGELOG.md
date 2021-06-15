@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.8.1b]] - 2021-06-15 _(Marcel Jerzyk & Jakub Litkowski)_
+
+### Added
+
+- [`README.md`](./README.md) updated with reproduction instruction for groups `M2`, `M3` & `M4`.
+
 ## [[0.8.1a]] - 2021-06-13 _(Marcel Jerzyk)_
 
 ### Changed
@@ -437,7 +443,8 @@ This changelog entry will be filled in a few days.
 
 **Project was initialized.**
 
-[todo]: https://github.com/pwr-pbr21/M1/compare/0.8.1a...HEAD
+[todo]: https://github.com/pwr-pbr21/M1/compare/0.8.1b...HEAD
+[0.8.1b]: https://github.com/pwr-pbr21/M1/compare/0.8.1a...0.8.1b
 [0.8.1a]: https://github.com/pwr-pbr21/M1/compare/0.8.1...0.8.1a
 [0.8.1]: https://github.com/pwr-pbr21/M1/compare/0.8.0...0.8.1
 [0.8.0]: https://github.com/pwr-pbr21/M1/compare/0.7.2...0.8.0

@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  Git Profiler <b>v0.8.1a</b> <i>(PBR21M1)</i>
+  Git Profiler <b>v0.8.1b</b> <i>(PBR21M1)</i>
   <br>
 </h1>
 
@@ -10,7 +10,8 @@
   <a href="#features">Features</a> •
   <a href="#usage">Usage</a> •
   <a href="#data">Data</a> •
-  <a href="#planned">Paper</a>
+  <a href="#planned">Paper</a> •
+  <a href="#reproduction"><b>Reproduction info for <code>M2/M3/M4</code> groups</b></a>
 </p>
 
 ## **Features**
@@ -230,3 +231,13 @@ All available data can be found in the [`./data`](./data/) directory. Most impor
 ## **Paper**
 
 The research paper can be found under [`./paper`](./paper). You have to have _LaTeX_ compiler installed (for example.: [_miktex_](https://miktex.org/)) in order to recreate `.pdf` file.
+
+## **Reproduction**
+
+Research reproduction instruction:
+
+- You can find [`reproduction`](https://github.com/pwr-pbr21/M1/tree/reproduction_m2/reproduction) directory on [`reproduction_m2`](https://github.com/pwr-pbr21/M1/tree/reproduction_m2) branch
+- In that folder you can find _R Script_ under the name of [`model_script.r`](https://github.com/pwr-pbr21/M1/blob/reproduction_m2/reproduction/model_script.R) along with data file [`modelDataNoLabels.csv`](https://github.com/pwr-pbr21/M1/blob/reproduction_m2/reproduction/modelDataNoLabels.csv).
+- Open up the script and set proper path to the datafile.
+- If you want, you can label the data by yourself (use `isOk` variable).
+- Test the model performance for different parameters
