@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.9.0]] - 2021-06-17 _(Marcel Jerzyk)_
+
+### Added
+
+- [`conclusions.tex`](./paper/sections/conclusions.tex) section written & translated.
+- [`discussion.tex`](./paper/sections/discussion.tex) section written & translated.
+- [`results.tex`](./paper/sections/discussion.tex) section written & translated.
+- _Conclusion_ written in [`abstract.tex`](./paper/sections/discussion.tex) section.
+
+### Changed
+
+- Added `url` formatting in paper.
+
+### Fixed
+
+- Cropped image in _systematic review_ section and adjusted the width.
+
 ## [[0.8.1b]] - 2021-06-15 _(Marcel Jerzyk & Jakub Litkowski)_
 
 ### Added
@@ -443,7 +460,8 @@ This changelog entry will be filled in a few days.
 
 **Project was initialized.**
 
-[todo]: https://github.com/pwr-pbr21/M1/compare/0.8.1b...HEAD
+[todo]: https://github.com/pwr-pbr21/M1/compare/0.9.0...HEAD
+[0.8.2]: https://github.com/pwr-pbr21/M1/compare/0.8.1b...0.9.0
 [0.8.1b]: https://github.com/pwr-pbr21/M1/compare/0.8.1a...0.8.1b
 [0.8.1a]: https://github.com/pwr-pbr21/M1/compare/0.8.1...0.8.1a
 [0.8.1]: https://github.com/pwr-pbr21/M1/compare/0.8.0...0.8.1

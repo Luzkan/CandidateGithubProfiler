@@ -1,17 +1,14 @@
 \subsection{Creating a Machine Learning Model}
 \label{sec:creating-machine-learning-model}
 
-We decided to chose \code{mlr} \footnote{mlr Website: https://mlr.mlr-org.com/} package as a tool which assists in creation of machine learning models and which is by far one of the most convenient machine learning packages in R. \footnote{R Website: https://www.r-project.org/}. We have performed the following processes:
+We decided to chose \code{mlr} \footnote{\code{mlr} Website: \url{https://mlr.mlr-org.com/}} package as a tool which assists in creation of machine learning models and which is by far one of the most convenient machine learning packages in R \footnote{R Website: \url{https://www.r-project.org/}}. We have performed the following processes:
 
-As our first step, we began by importing the data from the \code{csv} file \footnote{The \code{csv} file is available at the ,,\code{./data/cleaned_data.csv}'' path in this project repository} with appropriate  \code{UTF-8} encoding into a data frame.
+As our first step, we began by importing the data from the \code{csv} file \footnote{The \code{csv} file is available at the ,,\code{./data/cleaned\_data.csv}'' path in repository of this paper} with appropriate  \code{UTF-8} encoding into a data frame.
 Then, in our first approach to the task, we have split the data into two separate data sets, one of which is the training set which consist of 75\% of our data and the other - testing set with the remaining rest. 
 
 Now, after the data set is ready, we can proceed towards the creation of the machine learning model. First, we have defined a learning task for classification. We have specified \code{Task ID}, \code{Process Data} and \code{Target Column} (target column holds the information whether a given user is interesting in terms of his potential as an employee - or in other words - ,,attention worthy''). 
 
-%%% OLD \start %%%
-Subsequently, we constructed a learner by calling \emph{makeLearner()} method. We needed to choose a classification algorithm. In the beginning, \emph{randomForest} was selected. Afterwards, we trained the model with a \emph{train()} method. We were supposed to specify train subset, use defined task and learner. In the end, we predicted the target values for test dataset. We had to specify using machine learning model and task with a \emph{predict()} method as well. Moreover, by calling \emph{makeResampleDesc()} method we determined a resampling strategy used in our process. We selected a cross-validation as our strategy in order to estimate precisely how accurately a predictive model will perform in practice. Initially, we set 10-fold cross-validation type which means we used cross-validation with 10 iterations.
-%%% OLD \end %%%
-
+We have constructed a \emph{learner} by calling \code{makeLearner()} method with \emph{Random Forest} classification algorithm and afterwards, we proceed to \code{train()}. That gave us the predicted target values for our data set. Then we started to \code{predict()}. We also called \code{makeResampleDesc()} method with which we determined the resampling strategy. To estimate precisely how accurately our predictive model performed in practice we have chosen \emph{cross-validation}, more specifically - \emph{10-fold cross-validation}. 
 
 This was the time to begin the most rewarding part of the study. Having collected the data from all previously mentioned sources (which is the survey among programmers and IT specialists \textit{[ref: \ref{sec:questionnaire}, \ref{sec:data-prep-questionnaire}]}, the mega linter scans of repositories of the surveyed developers \textit{[ref: \ref{sec:github-repo-parsing}]} and the various information available through the GitHub API \textit{[ref: \ref{sec:github-info-parsing})]} into one single \code{csv} file, we began the work. 
 
@@ -27,4 +24,22 @@ First, we filtered out those users which did not provide their GitHub username a
   \item \code{LinesPerFile} - The ratio that is calculated via dividing of the number of lines by the number of files.
 \end{itemize}
 
-The data was labeled on the basis of current analysis of available information about the users. Then, we proceed to analyse the correlations between variables in that data.
+The data was labeled on the basis of the current analysis of available information about the users. Then, we proceed to analyse the correlations between variables in that data.
+
+In our research, we decided to use three - fairly common - classifiers:
+
+\begin{itemize}
+  \item \code{K-NN} - Method of the \emph{K Nearest Neighbors} focuses on the search for objects which are closest to the object of classification, and then it tries to determine the class of new objects based on its previously found neighbours. \code{K-NN} is resistant to the insulated values.
+  \item \code{Random Forest} - The main idea behind the algorithm is metaphorized by a forest which is not a coincidence - it creates lots of decision trees based on random data. Decision-making, i.e., classification, is performed as a result of \emph{majority voting} over the classes indicated by specific decision trees. This method maintains accuracy even if some data values are missing. It also is resistant to over fitting.
+  \item \code{SVM (Support Vector Machine)} - The concept behind the \emph{SVM Classifier} is the division of space using a function which splits the space into two areas, which correspond to two decision classes. This method works well with a small teaching sample as well as with a large number of attributes.
+\end{itemize}
+
+We tested the effectiveness of the models using 5 indicators which assess the quality of prediction:
+
+\begin{itemize}
+  \item \code{MMCE (Mean miss classification error)} - it is the average ratio of miss classified classes calculated as $\frac{f_{p} + f_{n}}{t}$, where: $f_{p}$ is \emph{false positives}, $f_{n}$ - \emph{false negatives} and $t$ is denoted as \emph{total}.
+  \item \code{MCC (Matthews correlation coefficient)} - it is an indicator of the quality of the binary classification. It is a measure of the correlation between true and predicted values. The \emph{MCC} takes into account all four values from the confusion matrix - when $f_{p} == f_{n} == 0$ then the \emph{MCC} value is $1$, and when $t_{p} == t_{n} == 0$, the \emph{MCC} value is $-1$. 
+  \item \code{ACC (Accuracy)} - one of the core and the most commonly used indicator; it tells how often the classification is correct. It is calculated as $\frac{t_{p} + t_{n}}{t}$. This measure is sensitive to unbalanced data sets.
+  \item \code{F1} - harmonic mean of Precision indices (ratio of $t_{p}$ to all objects classified as \code{true}) and Recall (ratio of $t_{p}$ to all observations in a given class ($t_{p}$ + $f_{n}$)).
+  \item \code{Kappa} - the reliability coefficient of duplicate measurements of the same variable. The closer it is to the value of $1$, the more consistent the ratings are. In turn, the closer to the value of $0$, the more divergent the assessments are.
+\end{itemize}

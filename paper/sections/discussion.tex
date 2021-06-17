@@ -1,4 +1,25 @@
-\subsection{Discussion}
+\section{Discussion}
 \label{sec:discussion}
 
-The variables prepared for the machine learning model were not correlated with each other. No substantial correlation was observed between the percentage of duplicate lines and the time until the first job was found. Unnoteworthy although reassuring connection, which has the highest correlation among those all variables, between the experience duration and \code{WorkFindTime} is present. 
+\subsection{All Features}
+
+The variables prepared for the machine learning model were not correlated with each other. No substantial correlation was observed between the percentage of duplicate lines and the time until the first job was found. Unnoteworthy although reassuring connection, which has the highest correlation among those all variables, between the experience duration and \emph{WorkFindTime} is present. 
+
+Taking into account the results of the most common classifiers (\emph{ACC} and \emph{MMCE}) we conclude that the \emph{Random Forest} and \emph{SVM} algorithms coped best with the classification task. The \emph{SVM} had the best results, which is not a surprise - as in theory - it should produce solid results even with a small amount of training data. That also reassures the validity of this algorithm as it is ,,field-tested'' in other research papers with similar data size with success. \emph{KNN} which by definition is the simplest, performs the worst because it requires features in a uniform scale to classify with its best efficiency while our data has features of quite different scales.
+
+However, one should have doubts about the quality of these indicators (the \emph{ACC} and \emph{MCEE}) because the data that we feed into the algorithm is not perfectly balanced (the $\%$ share of classes in the set is about $62\%$ to $38\%$). The \emph{F1} measure assessed the quality of all models on comparable level. On the other hand, the \emph{MCC}, which is often considered a key indicator, showed that the \emph{SVM} model was by far the best in classifying tasks.
+
+The \emph{Kappa} coefficient for the \emph{Random Forest} and \emph{SVM} algorithms is in the range of $0.21 - 0.40$, therefore the \emph{Level of Agreement} can be describe as \emph{,,fair agreement''} (which is about an average result). For \emph{KNN} the compliance can be defined as \emph{,,slight agreement''}.
+
+To sum up, the most effective model during the classification was the one using the \emph{SVM} algorithm. It was the best according to almost all indicators.
+
+\subsection{GitHub Data Only}
+
+Comparing the results of the classification using different features, we observed that a different number of features influenced each model in a different way. Each of the measures in the model that used \emph{SVM} algorithm, has worse value (besides the \emph{F1} indicator, which is better for each algorithm). This indicates that the algorithm performs better when it has access to the higher variety of features. 
+
+The \emph{KNN} algorithm performance improved as the number of features decreased. This may be due to the fact - as we previously mentioned - that it should perform best with the features of similar scale. As for \emph{Random Forest} - lower number of features made the \emph{ACC} indicator significantly worse while improving \emph{MCC}. It is difficult to explain the reason why such a difference in the results was obtained in this particular case.
+
+
+\subsection{Run-down}
+
+Summarizing, in most cases, the results of classification based on fewer features are worse, but the difference is not dramatic. Therefore, it can be concluded that the data obtained from the repository using our method of combining \emph{GitHub API} along with \emph{Mega Linter} tool and our parse scripts is to some extent sufficient to assess the potential of the GitHub user in terms of his potential for an employee.
