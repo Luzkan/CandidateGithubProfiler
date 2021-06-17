@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.10.1]] - 2021-06-17 _(Marcel Jerzyk)_
+
+### Changed
+
+- Moved `model_script.r` from _`./reproduction`_ into [`./src/gitprofiler/r_scripts/`](./src/gitprofiler/r_scripts/) directory
+- Moved & renamed `model_data_no_labels.csv` from `./reproduction` into [`./data/`](./data) directory.
+- Rebase, changelog entries and tweak & [`./README.md`](./README.md) update regarding reproduction.
+
+## [[0.10.0]] - 2021-06-17 _(Jakub Szańca)_
+
+### Added
+
+- `model_script.R` for reproduction purposes
+- `modelDataNoLabels.csv` for reproduction purposes
+
 ## [[0.9.0]] - 2021-06-17 _(Marcel Jerzyk)_
 
 ### Added
@@ -460,8 +475,10 @@ This changelog entry will be filled in a few days.
 
 **Project was initialized.**
 
-[todo]: https://github.com/pwr-pbr21/M1/compare/0.9.0...HEAD
-[0.8.2]: https://github.com/pwr-pbr21/M1/compare/0.8.1b...0.9.0
+[todo]: https://github.com/pwr-pbr21/M1/compare/0.10.1...HEAD
+[0.10.1]: https://github.com/pwr-pbr21/M1/compare/0.10.0...0.10.1
+[0.10.0]: https://github.com/pwr-pbr21/M1/compare/0.9.0...0.10.0
+[0.9.0]: https://github.com/pwr-pbr21/M1/compare/0.8.1b...0.9.0
 [0.8.1b]: https://github.com/pwr-pbr21/M1/compare/0.8.1a...0.8.1b
 [0.8.1a]: https://github.com/pwr-pbr21/M1/compare/0.8.1...0.8.1a
 [0.8.1]: https://github.com/pwr-pbr21/M1/compare/0.8.0...0.8.1
