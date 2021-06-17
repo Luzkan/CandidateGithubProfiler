@@ -337,8 +337,13 @@ def rename_columns(da):
     }, inplace=True)
 
 
+def remove_usernames(da):
+    da.data.drop(['GithubLink'], axis=1, inplace=True)
+
+
 def main():
     # Loading Data
+    # data_source = DataSource("Questionnaire", "./data/questionnaire.csv", ",")
     data_source = DataSource("Questionnaire", "./data/questionnaire.csv", ",")
     git_table = data_source.load_data()
     da = DataAdjuster(git_table)
@@ -369,6 +374,9 @@ def main():
 
     # Rename column names to english language
     rename_columns(da)
+
+    # Remove the column with usernames after the work is done
+    # remove_usernames(da)
 
     # Check & Save
     da.check_data()

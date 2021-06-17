@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.11.2]] - 2021-06-17 _(Marcel Jerzyk)_
+
+### Changed
+
+- For privacy, removed the github links and usernames from data files.
+
 ## [[0.11.1]] - 2021-06-17 _(Marcel Jerzyk)_
 
 ### Changed
