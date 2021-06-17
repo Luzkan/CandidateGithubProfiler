@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  Git Profiler <b>v0.9.0</b> <i>(PBR21M1)</i>
+  Git Profiler <b>v0.10.1</b> <i>(PBR21M1)</i>
   <br>
 </h1>
 
@@ -234,10 +234,9 @@ The research paper can be found under [`./paper`](./paper). You have to have _La
 
 ## **Reproduction**
 
-Research reproduction instruction:
+_Tl;dr_ research reproduction instruction:
 
-- You can find [`reproduction`](https://github.com/pwr-pbr21/M1/tree/reproduction_m2/reproduction) directory on [`reproduction_m2`](https://github.com/pwr-pbr21/M1/tree/reproduction_m2) branch
-- In that folder you can find _R Script_ under the name of [`model_script.r`](https://github.com/pwr-pbr21/M1/blob/reproduction_m2/reproduction/model_script.R) along with data file [`modelDataNoLabels.csv`](https://github.com/pwr-pbr21/M1/blob/reproduction_m2/reproduction/modelDataNoLabels.csv).
+- You need to navigate to the script and data file related to reproduction. One is in [`./src/gitprofiler/r_scripts/`](./src/gitprofiler/r_scripts/) and is called [`model_script.r`](./src/gitprofiler/r_scripts/model_script.r) and the second one can be found in [`./data/`](./data) under the name of [`model_data_no_labels.csv`](./data/model_data_no_labels.csv).
 - Open up the script and set proper path to the datafile.
 - If you want, you can label the data by yourself (use `isOk` variable).
 - Test the model performance for different parameters

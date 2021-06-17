@@ -9,7 +9,7 @@ library(mlr)
 library(corrplot)
 
 # 2. Make sure you set the right path to the data csv file
-path<-"<YOUR PATH>/modelDataNoLabels.csv"
+path<-"<YOUR PATH>/model_data_no_labels.csv"
 
 # 3. Importing data from csv.file
 model_data <- read.csv(path,encoding="UTF-8")
