@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[0.11.1]] - 2021-06-17 _(Marcel Jerzyk)_
+
+### Changed
+
+- Changed names of the files to be less ambiguous.
+- Rebase, changelog entries.
+
+### Removed
+
+- Empty `reproduction` directory.
+- Token from `repo_data.r`
+
+## [[0.11.0]] - 2021-06-17 _(Jakub Litkowski)_
+
+### Added
+
+- New [`extract_data_from_git.r`](./src/gitprofiler/r_scripts/extract_data_from_git.r) script added.
+- New [`cleaned_data_with_ql.csv`](./data/cleaned_data_with_ql.csv)
+
 ## [[0.10.1]] - 2021-06-17 _(Marcel Jerzyk)_
 
 ### Changed
@@ -475,7 +494,9 @@ This changelog entry will be filled in a few days.
 
 **Project was initialized.**
 
-[todo]: https://github.com/pwr-pbr21/M1/compare/0.10.1...HEAD
+[todo]: https://github.com/pwr-pbr21/M1/compare/0.11.1...HEAD
+[0.11.1]: https://github.com/pwr-pbr21/M1/compare/0.11.0...0.11.1
+[0.11.0]: https://github.com/pwr-pbr21/M1/compare/0.10.1...0.11.0
 [0.10.1]: https://github.com/pwr-pbr21/M1/compare/0.10.0...0.10.1
 [0.10.0]: https://github.com/pwr-pbr21/M1/compare/0.9.0...0.10.0
 [0.9.0]: https://github.com/pwr-pbr21/M1/compare/0.8.1b...0.9.0

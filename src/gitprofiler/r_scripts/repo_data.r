@@ -7,7 +7,7 @@ library("jsonlite")
 library("dplyr")
 
 # Private GitHub Token ( create your own here: https://github.com/settings/tokens/new )
-token <- "f927a6de5f6c2edfd93743bb299ecd11f3f011d7"
+token <- "<token>"
 
 # GraphQL Connection Object (GitHub)
 connection <- GraphqlClient$new(
