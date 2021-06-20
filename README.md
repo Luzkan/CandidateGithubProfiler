@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  Git Profiler <b>v1.0.0</b> <i>(PBR21M1)</i>
+  Git Profiler <b>v1.0.1</b> <i>(PBR21M1)</i>
   <br>
 </h1>
 

@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[1.0.1]] - 2021-06-20 _(Marcel Jerzyk)_
+
+### Added
+
+- One more idea in the _Further Reasearch_ in [`conclusions.tex`](./paper/sections/conclusions.tex) section.
+- Report #2 file ([`report_2_for_group_m2.tex`](.paper/misc/archive/report_2_for_group_m2.tex)) to the [`archive`](.paper/misc/archive) directory.
+
+### Fixed
+
+- Added missing paper images to the repository.
+
 ## [[1.0.0]] - 2021-06-20 _(Marcel Jerzyk)_
 
 Final release.
@@ -520,7 +531,8 @@ This changelog entry will be filled in a few days.
 
 **Project was initialized.**
 
-[todo]: https://github.com/pwr-pbr21/M1/compare/1.0.0...HEAD
+[todo]: https://github.com/pwr-pbr21/M1/compare/1.0.1...HEAD
+[1.0.1]: https://github.com/pwr-pbr21/M1/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/pwr-pbr21/M1/compare/0.11.2...1.0.0
 [0.11.2]: https://github.com/pwr-pbr21/M1/compare/0.11.1...0.11.2
 [0.11.1]: https://github.com/pwr-pbr21/M1/compare/0.11.0...0.11.1
