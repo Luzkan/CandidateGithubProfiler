@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[1.0.2]] - 2021-06-20 _(Marcel Jerzyk)_
+
+### Added
+
+- Research Paper _"Evaluating the Potential of a Candidate for a Job Offer Based on his GitHub Profile"_ in `.pdf` format ([here](./ResearchPaper.pdf)).
+
+### Changed
+
+- Updated [`README.md`](./REAMDE.md) with information about the [`ReasearchPaper.pdf`](./ResearchPaper.pdf).
+
 ## [[1.0.1]] - 2021-06-20 _(Marcel Jerzyk)_
 
 ### Added
@@ -531,7 +541,8 @@ This changelog entry will be filled in a few days.
 
 **Project was initialized.**
 
-[todo]: https://github.com/pwr-pbr21/M1/compare/1.0.1...HEAD
+[todo]: https://github.com/pwr-pbr21/M1/compare/1.0.2...HEAD
+[1.0.2]: https://github.com/pwr-pbr21/M1/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/pwr-pbr21/M1/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/pwr-pbr21/M1/compare/0.11.2...1.0.0
 [0.11.2]: https://github.com/pwr-pbr21/M1/compare/0.11.1...0.11.2
