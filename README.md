@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  Git Profiler <b>v1.0.1</b> <i>(PBR21M1)</i>
+  Git Profiler <b>v1.0.2</b> <i>(PBR21M1)</i>
   <br>
 </h1>
 
@@ -10,7 +10,7 @@
   <a href="#features">Features</a> •
   <a href="#usage">Usage</a> •
   <a href="#data">Data</a> •
-  <a href="#planned">Paper</a> •
+  <a href="#paper">Paper</a> •
   <a href="#reproduction"><b>Reproduction info for <code>M2/M3/M4</code> groups</b></a>
 </p>
 
@@ -230,7 +230,13 @@ All available data can be found in the [`./data`](./data/) directory. Most impor
 
 ## **Paper**
 
-The research paper can be found under [`./paper`](./paper). You have to have _LaTeX_ compiler installed (for example.: [_miktex_](https://miktex.org/)) in order to recreate `.pdf` file.
+### _Research Paper_
+
+**The file itself can be found in the [main directory](./ResearchPaper.pdf).**
+
+### _Code_
+
+The LaTeX code of the research paper can be found under [`./paper`](./paper). You have to have _LaTeX_ compiler installed (for example.: [_miktex_](https://miktex.org/)) in order to recreate `.pdf` file.
 
 ## **Reproduction**
 
