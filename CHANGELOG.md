@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [[1.0.0]] - 2021-06-20 _(Marcel Jerzyk)_
+
+Final release.
+
+### Added
+
+- Some final formatting to the paper like page breaks where it would make the article look better.
+- Added self-defined formatting for code listings so it doesn't look as bad and highlights keywords, comments and strings properly.
+
+### Changed
+
+- Updated `abstract.tex` with _Results_.
+- The final amount of sample size used in algorithms was added (`creating_ml_model.tex`).
+- Explanation what `R` script do was added to the `data_collection.tex`
+- Removed unused reference.
+
+### Removed
+
+- Older versions of sections in the `paper/misc/archive` directory.
+
 ## [[0.11.2]] - 2021-06-17 _(Marcel Jerzyk)_
 
 ### Changed
@@ -500,7 +520,9 @@ This changelog entry will be filled in a few days.
 
 **Project was initialized.**
 
-[todo]: https://github.com/pwr-pbr21/M1/compare/0.11.1...HEAD
+[todo]: https://github.com/pwr-pbr21/M1/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/pwr-pbr21/M1/compare/0.11.2...1.0.0
+[0.11.2]: https://github.com/pwr-pbr21/M1/compare/0.11.1...0.11.2
 [0.11.1]: https://github.com/pwr-pbr21/M1/compare/0.11.0...0.11.1
 [0.11.0]: https://github.com/pwr-pbr21/M1/compare/0.10.1...0.11.0
 [0.10.1]: https://github.com/pwr-pbr21/M1/compare/0.10.0...0.10.1

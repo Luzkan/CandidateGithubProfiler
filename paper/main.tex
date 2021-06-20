@@ -45,6 +45,57 @@
 % Pozwala na używanie kodu w papierze. // Marcel Jerzyk
 \usepackage{listings}
 
+% |--------------------|
+% | Personal Definitions
+% |
+
+% Creates \code for single-word code highlights // Marcel Jerzyk
+\def\code#1{\texttt{#1}}
+
+% Defining new colors for code highlighting
+\definecolor{codestring}{rgb}{0.7, 0.3, 0.0}
+\definecolor{codegray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{codecomment}{rgb}{0.3, 0.4, 0.1}
+\definecolor{codekeyword}{rgb}{0.3, 0.8, 0.4}
+\definecolor{backcolour}{rgb}{0.95, 0.95, 0.92}
+
+% Creating new language for the Scopus Query highlighting // Marcel Jerzyk
+\lstdefinelanguage{Query}{
+    backgroundcolor=\color{backcolour},
+    keywords={AND, OR},
+    keepspaces=true,
+    sensitive=true,
+    stringstyle=\color{codestring},
+    basicstyle=\ttfamily\footnotesize,
+    morestring=[b]"
+}
+
+% Creating new language for the Python output highlighting // Marcel Jerzyk
+\lstdefinelanguage{PythonOwn}{
+    backgroundcolor=\color{backcolour},
+    basicstyle=\ttfamily\footnotesize,
+    keywords={str, int, float},
+    keywordstyle={\color{codekeyword}},
+    keepspaces=true,
+    sensitive=true,
+    commentstyle=\color{codecomment},
+    stringstyle=\color{codestring},
+    comment=[l]{#}, % Err Info: This line provokes an error, the reason why is unknown though
+    morestring=[b]"
+}
+
+% Creating new language for the script launching highlighting // Marcel Jerzyk
+\lstdefinelanguage{BashOwn}{
+    backgroundcolor=\color{backcolour},
+    keepspaces=true,
+    sensitive=true,
+    stringstyle=\color{codestring},
+    basicstyle=\ttfamily\footnotesize,
+%    morestring=[b]'
+}
+
+
+
 % |-------------------------------------------------------------------------------------
 % | Settings.
 % |
@@ -59,7 +110,7 @@
 \fancypagestyle{firstpage}{
   % Clears the default for header and footer
   \fancyhf{}
-  \lhead{\footnotesize Preprint of a chapter: Marcel Jerzyk, Jakub Litkowski, Jakub Szańca and Lech Madeyski, Developments in Information and Knowledge Management for Business Applications, Studies in Systems, Decision and Control, chapter ”Title” Springer}
+  \lhead{\footnotesize Preprint of a chapter: Marcel Jerzyk, Jakub Litkowski, Jakub Szańca and Lech Madeyski, Developments in Information and Knowledge Management for Business Applications,  \\ Studies in Systems, Decision and Control}
 }
 \setlength{\headheight}{110pt}
 
@@ -73,7 +124,7 @@
 \title*{Evaluating the potential of a candidate for a job offer based on his GitHub profile}
 \titlerunning{Evaluating the potential of a candidate for a job offer based on his GitHub profile.}
 \author{Marcel Jerzyk, Jakub Litkowski, Jakub Szańca and Lech Madeyski}
-\authorrunning{M. Jerzyk, J. Litkowski, J. Szańca and L. Madeyski}
+\authorrunning{Marcel Jerzyk, Jakub Litkowski, Jakub Szańca and Lech Madeyski}
 \institute{Marcel Jerzyk, Jakub Litkowski, Jakub Szańca, Lech Madeyski \at Wroclaw University of Science and Technology, Poland}
 
 \maketitle
@@ -144,9 +195,9 @@
 % | Acknowledgement & Bibliography.
 % |
 
-\begin{acknowledgement}
-\item {This research was ...}
-\end{acknowledgement}
+% \begin{acknowledgement}
+% \item {This research was ...}
+% \end{acknowledgement}
 
 \bibliographystyle{plain}
 \bibliography{refs}

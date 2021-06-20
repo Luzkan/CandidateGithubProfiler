@@ -12,7 +12,7 @@ We have constructed a \emph{learner} by calling \code{makeLearner()} method with
 
 This was the time to begin the most rewarding part of the study. Having collected the data from all previously mentioned sources (which is the survey among programmers and IT specialists \textit{[ref: \ref{sec:questionnaire}, \ref{sec:data-prep-questionnaire}]}, the mega linter scans of repositories of the surveyed developers \textit{[ref: \ref{sec:github-repo-parsing}]} and the various information available through the GitHub API \textit{[ref: \ref{sec:github-info-parsing})]} into one single \code{csv} file, we began the work. 
 
-First, we filtered out those users which did not provide their GitHub username and those who did not classify any ,,main'' language (and two more users whose repositories could not get linted because of the limited available time to perform such operations or one more user who had no public repositories on his GitHub profile). The remaining pool of <ILE ZOSTAŁO KONIEC KOŃCÓW USERÓW?> was the base from which we extrapolated the features that were used in the machine learning model:
+First, we filtered out those users which did not provide their GitHub username and those who did not classify any ,,main'' language (and two more users whose repositories could not get linted because of the limited available time to perform such operations or one more user who had no public repositories on his GitHub profile). The remaining pool of 26 was the base from which we extrapolated the features that were used in the machine learning model:
 
 \begin{itemize}
   \item \code{ExperienceDuration} - The time that a person is being present on the labor market.

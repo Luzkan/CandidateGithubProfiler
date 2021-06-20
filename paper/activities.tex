@@ -141,6 +141,10 @@ Titus Barik Microsoft Redmond, WA, USA
 \\- dodanie dokumentacji do skryptu (opisy poszczególnych sekcji)
 \\- praca nad artykułem (opis skryptu do zbierania danych z github)
 
+\subsection{Zajecia 12}
+- praca nad skryptem zbierającym wyniki z megalintera
+\\- praca nad artykułem (opis skryptu z R)
+
 % |-------------------------------------------------------------------------------------
 
 \newpage
@@ -195,6 +199,9 @@ Artykuł:\\
 - napisanie szkieletu podrozdziału dotyczącego skryptu tworzącego ml model\\
 - query jako zrzut ekranu\\
 - poprawa błędów w latex\\
+
+\subsection{Zajęcia 12}
+- przygotowanie danych do uczenie – połączenie danych z ankiety, danych pozyskanych z githuba oraz danych z plików json użytkowników utworzonych przez mega lintera
 
 % |-------------------------------------------------------------------------------------
 
@@ -395,11 +402,128 @@ Praca nad skryptem do automatyzacji pozyskiwania wyników z lintera do .jsona pr
 
 \subsection{Zajęcia 12 (\emph{25.05.21 - 01.06.21})}
 
+Restrukturyzacja projektu od strony szablonu papieru. Posprzątanie plików od zbędnego, bądź niepoprawnego formatowania tekstu. Dorzucenie różnych znaczników, które są użyteczne (w headerze/footerze, etc.). Sprawdzenie kompilacji projektu na lokalnie zainstalowanym kompilatorze LaTeXa. Przy użyciu \textbf{MakTex} kompilacja przebiegła pomyślnie po poprawieniu paru błędów. Poprawnie skompilowanie do posiadania ,,latexowego dokumentu na żywo'' poprzez program VSCode jednak była na tyle problematyczna, że po pokonaniu około 7 kolejnych problemów porzuciłem dalsze próby, aby nie marnować na to czasu. Poprawienie paru rzeczy w repozytorium na GH.
+
 \subsection{Zajęcia 13 (\emph{01.06.21 - 08.06.21})}
 
-\subsection{Zajęcia 13 (\emph{08.06.21 - 15.06.21})}
+Stworzenie nowego skryptu umożliwiające łatwiejsze skorzystanie z przeprasowanych danych przez wcześniej napisany skrypt, który zbierał dane wydobywane przez program \emph{Mega Linter}.Sporządzenie dokumentacji oraz informacji w pliku \\ \emph{CHANGELOG.md} na temat zmian wykonanych podczas \emph{Zajęcia 12} oraz podczas tego tygodnia. 
+
+\subsubsection{merge\_jsons.py}
+
+Skrypt jest prosty w obsłudze - jedynie czego potrzebuje to danego \emph{github\_username} podanego w linii komend pod flagą \emph{-u} (\emph{--username}). Zbiera on informacje ze wszystkich stworzonych \emph{.json}-ów dla każdego pobranego repozytorium, a następnie tworzy odpowiedni nowy plik \emph{.json}, który już jest ostatecznym - zawiera on wszystkie informajce połączone ze sobą w sposób typu "łączeniowy". Nie nadpisuje on żadnych danych - dla każdego combos'a \textbf{język-linter} zsumowuje on wszelkie dane, które mogłyby zostać wykryte dla róznych repozytoriów. Działa on niezależnie od typu wygenerowanych danych przez parser, stąd również można znaleźc w nim informacje \textbf{total}, która zsumowuje ilość linii, zduplikowanych linii itd. dla każdego wykrytego języka. Ostateczny .json nie gubi żadnej informacji, poza procentową wartością duplikatów, gdyż ta informacja nie ma sensu podczas sumowania wartości. Wciąz można ją obliczyć korzystając z wartości absolutnej ilości wykrytych linii oraz wykrytych zduplikowanych linii.
+
+\subsubsection{LaTeX Projekt na GH}
+
+Dodatkowo teraz projekt tego dokumentu widnieje również na repozytorium GitHub w folderze \emph{/paper/}. 
+
+\subsubsection{Ekstrahowanie danych}
+
+Sporo czasu zajęło mi (i wciąż zajmuje, od pt. do wt.) eksport danych. W trakcie napotkałem liczne problemy:
+\begin{itemize}
+  \item Mega Linter nie jest ,,Mega Stabilny'' przy takiej robocie, gdy musi lintować bardzo dużo repozytoriów na raz.
+  \item GitHub mnie timeoutuje z dostępu do jego API.
+  \item Zdarzają się konta, których nie mogę sklonować do lokalu (wykluczyłem z przyczyn: \textit{cyfry w nazwie użytkownika GH, specjalne znaki w repozytoriach GH, duże i małe litery w nazwie użytkownika GH}, póki co dalej nie jestem pewien powodu takiego zachowania).
+  \item Sam proces lintowania trwa dość długo.
+  \item Poprzez dziwne zachowanie stdout, nie zawsze jest wiadome, kiedy linter zakończył swoje działanie.
+\end{itemize}
+
+Dość ważnym spostrzeżeniem jest to, że jeśli w proces ewaluacji chcemy wdrożyć wyniki lintera, to na - \textbf{uwaga} - \textbf{napewno nie będzie to szybkim procesem}. Potrzebny będzie odpowiednia ilość czasu zależna od ilości repozytoriów.
+
+\subsubsection{Przepisanie Literarure Review}
+
+Obecnie przepisałem 2 z 10 artykułów pod Literature Review. Proces reformalizacji wymaga ponownowego wejścia w papier i jest to bardziej praca na nowo, poprosiłem o wyhighlightowanie kluczowych rzeczy z wymienionych papierów, aby ten proces usprawnić.
+
+\subsection{Zajęcia 14 (\emph{08.06.21 - 15.06.21})}
+
+Kontynuowanie lintowania kolejnych repozytoriów. I dalsze lintowanie... i dalsze. Ale w końcu doszło to do końca. :)
+
+W międzyczasie pomiędzy procesowaniem scrape'owania kolejnych porcji dodatkowych danych przejrzałem cały tekst do tej pory pod względem innych, bardziej specyficznych błędów, które nie zostały wykryte przez wcześniej użyte spell-checkery. Do tego użyłem narzędzia Writefull \footenote{Writefull jakby ktoś z Was chciał, bądź też bonus dla innych grup - \url{https://biblioteka.pwr.edu.pl/e-zasoby/writefull} tutaj można znaleźć informacje jak to narzedzie zdobyć :)}, o którym wspomniał profesor i udało mi się dojść, że i studenci mogą z niego używać. Niestety jego wersja online jest zbugowana - nie działa ich cała strona, aczkolwiek wtyczki wydają się działać w pełni sprawnie. Tym sposobem, przeszedłem po wszystkich pod-pliczkach z tekstem i poprawiałem tekst, tak jak mniej więcej podpowiada program. Oczywiście, nie na ,,rympał'', gdyż trafiają się rzeczy typu [\ref{fig:Writefull-Protip}]:
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=11cm]{awesome_writeful_tip.png}
+\caption{Awesome Writeful Protip}
+\label{fig:Writefull-Protip}
+\end{figure}
+
+Poprawiłem trochę język i potworzyłem bardziej kwiecisite zdania gdzieniegdzie, zdefiniowałem nową komendę $code{ }$, do formatowania wyrazów do monospace (nazwa oddaje jakiego typu wyrazy są poddane temu formatowaniu). Poprawiłem klikaność linków - teraz po prostu są klikalnymi url, zamiast tekstem. 
+
+Fixnąłem 4 errory, które się pojawiły na overleafie.
+
+\subsubsection{Kolejne dni}
+
+Dolintowane jednak jeszcze parę osób, których czas lintowania był na tyle długi, że wcześniej go abortowałem. Jedynie dwóch użytkowników już pomijam, bo trwają zdecydowanie za długo (\code{lambdaofgod} oraz \code{tranzystorek-io}).
+
+
+
+Rozwinąłem część sekcji dotyczącej processingu danych z ankiety - wyszczególniłem dlaczego i jak cżęść danych została manualnie zmieniona (brana średnia, gdy ktoś podawał przedział jako estymatę ilości, bądź wartość minimalną, gdy szacował) oraz także informacje o tym, że kolumny są przeformatowane, by byly odczytywane jako odpowiednie datatype'y - floaty jako floaty, inty jako inty, booleany jako booleany itd. Także informacja o "zangielszczeniu" nazw kolumn, tak aby dane mogły być ponownie użyte w bardziej zrozumiały sposób, jeżeli nie umieją polskiego.
+
+Przepisałem na język angielski, ostylizowałem i przeformatowałem (oraz poprawiłem obrazek) tekst zamieszczony przez chłopaków w sekcji data-preprocessing i poprawiłem miejsca, w których części powinny się znajdować.
+
+\subsubsection{Dalsza robota}
+
+Zaktualizowałem repozytorium
+
+\begin{itemize}
+  \item Tagi wersji wszystkie wskazują poprawnie daną iteracje brancha main
+  \item Poprawiony język w \code{CHANGELOG.md}
+  \item Zaktualizowałem obecny artykuł po stronie repozytorium
+  \item Dodałem informacje na temat folderu z danymi do \code{README.md}
+  \item Dodałem informacje na temat folderu z artykułem do \code{README.md}
+  \item Dodałem wymagane paczki, które są potrzebne do odpalanie skryptów Pythonowskich w \code{requirements.txt}
+\end{itemize}
+
+\subsubsection{Prezentacja}
+
+Poprawiłem ogólny design:
+\begin{itemize}
+  \item umiejscowanie elementów na prezentacji
+  \item skrócenie tekstów do ,,headlinerów'', bądź zamiana ich zupełnie na obrazki
+  \item poprawa animacji w prezentacji
+  \item dorobienie ikon do prezentacji
+  \item stylizacja i spacing tekstu oraz formatowanie czcionek
+  \item dorzucenie paru slajdów:
+  \begin{itemize}
+    \item \#3: Ciekawe spostrzeżenie nt. GitHuba, które może się przydać w świadomości wszystkich słuchających
+    \item \#4: Zagregowanie do ,,bite-size'' najważniejszych i najciekawsyzch informacji wydobytych z \emph{systematic-review}. 
+    \item \#13: ,,Co dalej?''
+  \end{itemize}
+\end{itemize}
+
+
+\subsection{Zajęcia 15 (\emph{15.06.21 - 22.06.21})}
+
+\subsubsection{Artykuł}
+
+Sekcje:
+
+\begin{itemize}
+\item \code{conclusions.tex}
+\item \code{discussion.tex}
+\item \code{results.tex}
+\item \code{abstract.tex}
+\end{itemize}
+
+zostały ,,zangielszczone'' oraz poprawione do wersji finalnej (jak zawsze - wraz z grammar checkerami).
+
+Dodałem nowe, własne formatowanie kodu dla Search Stringa, żeby nie wyglądał tak (tragicznie) brzydko, a także dodałem caption \code{Listing} bo go brakowało (\emph{Listing 1}). Podobnie wykonałem własne formatowanie kodu dla pozostałych bloków kodu i komend (\emph{Listing 4} - Output od parsera lintera, \emph{Listing 3} i  \emph{Listing 2} - komendy do właczenia skryptów / lintera)
+
+\subsubsection{Repozytorium}
+
+Zrebase'owałem, a następnie zmerdżowałem wszystkie branche w projekcie do mastera (\code{main}) oraz przy każdej dopisałem wpisy do \code{CHANGELOG.md} wraz z odpowiednim tagiem, co się w tych wersjach dzieje.
+
+Uporządkowałem projekt strukturalnie, tak by robota tworzona na branchach przez chłopaków znajdowała się w odpowiednich miejscach - dane w \code{./data}, skrypty \emph{R} w \code{./src/gitprofiler/r\_scripts} itd.
+
+Sekcje w repozytorium są również zaktualizowane do postaci takiej, w jakiej jest obecny artykuł.
+
+\subsubsection{Prywatność}
+
+Dorobiłem do skryptu Pythonowego \code{questionnaire\_adjuster.py} dodatkową funkcję, która anonimizuje dane poprzez pozbycie się nicków/linków do \emph{GitHub Profile}. To kto jest kim dalej da się dojść po indeksach, jeżeli się posiada tą informację.
+
+Zauważyłem także, że w jednym ze skryptów \emph{R} znowu był token, więc go usunąłem... \code{:P}. 
 
 \newpage
+
 
 \section{Propozycje kierunków rozwoju:}
 Zsumowane propozycje: \\

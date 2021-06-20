@@ -26,35 +26,36 @@ One of the most difficult tasks is to properly obtain information from the repos
 
 The usage of the Mega Linter and scrape scripts is more widely described in the main \code{README.md} file although, in short, one must have Docker \footnote{Docker Website - https://www.docker.com/} and Python installed. Then, simply navigate to the repository which you would like to lint and run a command \textit{[ref: \ref{lst:shell-command-run-linter}]} which will generate an \code{output.txt} file.
 
-\begin{lstlisting}[language=Bash, label={lst:shell-command-run-linter}]
+\begin{lstlisting}[language=BashOwn, label={lst:shell-command-run-linter}, caption={"Running
+\emph{Mega Linter}"}]
 npx mega-linter-runner --flavor all
-                  -e 'ENABLE=,DOCKERFILE,MARKDOWN,YAML'
-                  -e 'SHOW_ELAPSED_TIME=true'
-                 > output.txt
+                       -e 'ENABLE=,DOCKERFILE,MARKDOWN,YAML'
+                       -e 'SHOW_ELAPSED_TIME=true'
+                       > output.txt
 \end{lstlisting}
 
 Copy the file and paste it in the \emph{scrape.py} directory. Finally use shell scrape command \textit{[ref: \ref{lst:shell-command-scrape-py}]} command which will generate an \code{output.json} with a list of dictionaries structured as in output example given below \textit{[ref: \ref{lst:scrape-py-output-example}]}.
 
-\begin{lstlisting}[language=Bash, label={lst:shell-command-scrape-py}]
-python scrape.py -f output.txt
+\begin{lstlisting}[language=BashOwn, label={lst:shell-command-scrape-py}, caption={"Launching \code{scraper.py}"}]
+python scraper.py -f output.txt
 \end{lstlisting}
 
-\begin{lstlisting}[language=Python, label={lst:scrape-py-output-example}]
+\begin{lstlisting}[language=PythonOwn, label={lst:scrape-py-output-example}, caption={"Parsed Linter Output in \code{.json} format"}]
 {
- "language": str,     #detected language
- "linter": str,       #checked via linter (name)
- "files": int or str, #detected files in given language
- "fixed": int,        #fixed errors automatically
- "errors": int        #errors that could not be fixed
+ "language": str,     # detected language
+ "linter": str,       # checked via linter (name)
+ "files": int or str, # detected files in given language
+ "fixed": int,        # fixed errors automatically
+ "errors": int        # errors that could not be fixed
 },
 
-or
+# or
 
 {
- "language": str,     #detected language
- "files": int,        #in a given language
- "lines": int,        #in a given language
- "tokens": int,       #("chars") in a given language
+ "language": str,     # detected language
+ "files": int,        # in a given language
+ "lines": int,        # in a given language
+ "tokens": int,       # ("chars") in a given language
  "clones": int,
  "duplicate_lines_num": int,
  "duplicate_lines_percent": float,

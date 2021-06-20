@@ -19,19 +19,22 @@ Hence, we defined four research questions.
 \end{itemize}
 
 \subsection{Currently Available Resources on the Subject}
-We used search engines (Google Scholar and Scopus) to find proper resources and currently available papers on the subject that we are investigating in our paper, and then - to collect all relevant literature - we created a more specific search string which is given below~\texit{[ref: \ref{lst:search-string}]}.
+We used search engines (Google Scholar and Scopus) to find proper resources and currently available papers on the subject that we are investigating in our paper, and then - to collect all relevant literature - we created a more specific search string which is given below\textit{ [ref: ~\ref{lst:search-string}]}.
 
-\begin{lstlisting}[language=Python, label={lst:search-string}]
+% This is final v1.0.0 formatting - it looks better if the page breaks here // MJ %
+\newpage
+
+\begin{lstlisting}[language=Query, label={lst:search-string}, caption=Search String Query]
 (
   skill AND
   repository AND
-  ( github  OR  gitlab  OR  bitbucket )
+  ( github OR gitlab OR bitbucket )
 ) OR (
-  recruitment  OR hiring  OR interview
+  recruitment OR hiring OR interview
 ) AND (
   programming AND purpose
 ) AND (
-  "Computer science"
+      "Computer Science"
 ) AND (
   mining AND software
 )
@@ -46,6 +49,9 @@ This gave us a good amount of publications which needed to be further filtered b
 \caption{Literature Identification}
 \label{fig:literature-identification}
 \end{figure}
+
+% This is final v1.0.0 formatting - it looks better if the page breaks here // MJ %
+\newpage
 
 \subsection{Results Selection Process}
 After running the search string query, we were presented with a large number of results. We have gone through the results list and discarded all duplicate entries and simultaneously discarded those papers whose titles or abstracts were not related to the topic of our research. Thus, we ended up with 28 papers which we further examined. Finally, we have chosen 10 papers which are closely related to the subject of this paper.
